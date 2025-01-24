@@ -1,6 +1,8 @@
 import heapq
 
 infinity = float("inf")
+
+
 def make_graph():
     # identical graph as the YouTube video: https://youtu.be/_lHSawdgXpI
     # tuple = (cost, to_node)
