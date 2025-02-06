@@ -2,9 +2,7 @@ import heapq
 
 infinity = float("inf")
 
-
 def make_graph():
-    # identical graph as the YouTube video: https://youtu.be/_lHSawdgXpI
     # tuple = (cost, to_node)
     return {
         'A': [(4, 'B'), (2, 'C')],
@@ -13,7 +11,6 @@ def make_graph():
         'D': [],
         'E': [(1, 'D')],
     }
-
 
 def dijkstras_heap(G, start='A'):
     shortest_paths = {} 
@@ -40,7 +37,6 @@ def dijkstras_heap(G, start='A'):
                 heapq.heappush(heap, (shortest_paths[to_node], to_node))
 
     return shortest_paths
-
 
 def dijkstras(G, start='A'):
     shortest_paths = {}

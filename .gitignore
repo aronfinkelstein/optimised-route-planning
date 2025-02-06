@@ -1,1 +1,4 @@
 ./vrpvenv
+
+./src/cache
+./src/__pycache__
