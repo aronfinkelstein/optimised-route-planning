@@ -1,0 +1,448 @@
+{
+  "path1": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6080503, 51.4562142, -2.6080419, 51.4562768],
+      "climb": 0.34413909912110086,
+      "distance": 7.023123271344082,
+      "avg_incline_angle": 2.81
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6080419, 51.4562768, -2.6080039, 51.4564433],
+      "climb": 0.9068450927734446,
+      "distance": 18.986427575944,
+      "avg_incline_angle": 2.73
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6080039, 51.4564433, -2.6079905, 51.4565167],
+      "climb": 0.01324844360350852,
+      "distance": 8.295842648126964,
+      "avg_incline_angle": 0.09
+    },
+    "section4": {
+      "points": ["point4", "point5"],
+      "coords": [-2.6079905, 51.4565167, -2.6079721, 51.4566169],
+      "climb": 0.42488861083983664,
+      "distance": 11.326968891396735,
+      "avg_incline_angle": 2.15
+    }
+  },
+  "path2": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6100036, 51.4537869, -2.6100205, 51.4539148],
+      "climb": 1.2538185119628906,
+      "distance": 14.34533175811416,
+      "avg_incline_angle": 5.0
+    }
+  },
+  "path3": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6100036, 51.4537869, -2.6102021, 51.4538215],
+      "climb": 4.784233093261719,
+      "distance": 22.28414398863797,
+      "avg_incline_angle": 12.12
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6102021, 51.4538215, -2.6102548, 51.4538489],
+      "climb": 0.7727012634277273,
+      "distance": 6.5759179778232975,
+      "avg_incline_angle": 6.7
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6102548, 51.4538489, -2.6103029, 51.4538875],
+      "climb": 0.37947845458985086,
+      "distance": 6.834801647405813,
+      "avg_incline_angle": 3.18
+    },
+    "section4": {
+      "points": ["point4", "point5"],
+      "coords": [-2.6103029, 51.4538875, -2.6103804, 51.453948],
+      "climb": -0.04210662841796875,
+      "distance": 10.895135172867157,
+      "avg_incline_angle": -0.22
+    },
+    "section5": {
+      "points": ["point5", "point6"],
+      "coords": [-2.6103804, 51.453948, -2.6104596, 51.4540076],
+      "climb": 0.21428680419921875,
+      "distance": 10.982917141030173,
+      "avg_incline_angle": 1.12
+    },
+    "section6": {
+      "points": ["point6", "point7"],
+      "coords": [-2.6104596, 51.4540076, -2.6105116, 51.4540419],
+      "climb": 0.7260589599609446,
+      "distance": 6.90009792991697,
+      "avg_incline_angle": 6.01
+    },
+    "section7": {
+      "points": ["point7", "point8"],
+      "coords": [-2.6105116, 51.4540419, -2.6105533, 51.4540613],
+      "climb": 0.8556861877441406,
+      "distance": 5.09077345196476,
+      "avg_incline_angle": 9.54
+    },
+    "section8": {
+      "points": ["point8", "point9"],
+      "coords": [-2.6105533, 51.4540613, -2.6105973, 51.454077],
+      "climb": 0.6916198730468679,
+      "distance": 5.169142779246137,
+      "avg_incline_angle": 7.62
+    },
+    "section9": {
+      "points": ["point9", "point10"],
+      "coords": [-2.6105973, 51.454077, -2.6106541, 51.4540941],
+      "climb": 0.7379837036132812,
+      "distance": 6.562309256946297,
+      "avg_incline_angle": 6.42
+    },
+    "section10": {
+      "points": ["point10", "point11"],
+      "coords": [-2.6106541, 51.4540941, -2.6107756, 51.4541293],
+      "climb": 2.466686248779297,
+      "distance": 13.993686540785225,
+      "avg_incline_angle": 10.0
+    }
+  },
+  "path4": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6100036, 51.4537869, -2.6099472, 51.4532815],
+      "climb": -3.4231147766113317,
+      "distance": 56.54785597160091,
+      "avg_incline_angle": -3.46
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6099472, 51.4532815, -2.6099304, 51.4531306],
+      "climb": -0.2442150115966797,
+      "distance": 16.88331539826986,
+      "avg_incline_angle": -0.83
+    }
+  },
+  "path5": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6036209, 51.4551531, -2.6035778, 51.4551189],
+      "climb": -0.4407081604003906,
+      "distance": 6.097362582186317,
+      "avg_incline_angle": -4.13
+    }
+  },
+  "path6": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6036209, 51.4551531, -2.6042364, 51.4556294],
+      "climb": 6.161518096923828,
+      "distance": 86.24186796564196,
+      "avg_incline_angle": 4.09
+    }
+  },
+  "path7": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6026238, 51.4543815, -2.6030418, 51.4541676],
+      "climb": 3.4187355041503906,
+      "distance": 51.98264044491203,
+      "avg_incline_angle": 3.76
+    }
+  },
+  "path8": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6026238, 51.4543815, -2.603195, 51.4548299],
+      "climb": 6.817457199096676,
+      "distance": 80.47249803246271,
+      "avg_incline_angle": 4.84
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.603195, 51.4548299, -2.6035778, 51.4551189],
+      "climb": 2.603607177734382,
+      "distance": 53.146902340908696,
+      "avg_incline_angle": 2.8
+    }
+  },
+  "path9": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6026238, 51.4543815, -2.6022983, 51.4541346],
+      "climb": -3.0750007629394496,
+      "distance": 45.26962183813032,
+      "avg_incline_angle": -3.89
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6022983, 51.4541346, -2.6015984, 51.4535964],
+      "climb": -6.4396457672119105,
+      "distance": 97.83518017653019,
+      "avg_incline_angle": -3.77
+    }
+  },
+  "path10": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6090601, 51.4576576, -2.6093096, 51.4577897],
+      "climb": 1.020404815673814,
+      "distance": 31.256132426287774,
+      "avg_incline_angle": 1.87
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6093096, 51.4577897, -2.6096241, 51.4579139],
+      "climb": 1.4160423278808665,
+      "distance": 37.418642101705615,
+      "avg_incline_angle": 2.17
+    }
+  },
+  "path11": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6090601, 51.4576576, -2.609153, 51.4577693],
+      "climb": -0.30413055419922586,
+      "distance": 16.118973241821447,
+      "avg_incline_angle": -1.08
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.609153, 51.4577693, -2.6091598, 51.4578377],
+      "climb": -0.47617340087890625,
+      "distance": 7.643486949617833,
+      "avg_incline_angle": -3.56
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6091598, 51.4578377, -2.6091228, 51.4578947],
+      "climb": -0.288219451904304,
+      "distance": 7.544390926778269,
+      "avg_incline_angle": -2.19
+    }
+  },
+  "path12": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6089, 51.4583249, -2.6089043, 51.4582844],
+      "climb": 0.210174560546875,
+      "distance": 4.5288269888216455,
+      "avg_incline_angle": 2.66
+    }
+  },
+  "path13": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6089, 51.4583249, -2.6088798, 51.4584882],
+      "climb": 1.277435302734375,
+      "distance": 18.296610557827268,
+      "avg_incline_angle": 3.99
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6088798, 51.4584882, -2.6088728, 51.4585336],
+      "climb": 0.3505744934082031,
+      "distance": 5.107692276337585,
+      "avg_incline_angle": 3.93
+    }
+  },
+  "path14": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6089, 51.4583249, -2.6087668, 51.4583198],
+      "climb": 0.5430068969726562,
+      "distance": 14.739715111111769,
+      "avg_incline_angle": 2.11
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6087668, 51.4583198, -2.6087252, 51.4583218],
+      "climb": 0.1835479736328125,
+      "distance": 4.605359195797101,
+      "avg_incline_angle": 2.28
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6087252, 51.4583218, -2.6086749, 51.458334],
+      "climb": 0.254608154296875,
+      "distance": 5.725076241093972,
+      "avg_incline_angle": 2.55
+    },
+    "section4": {
+      "points": ["point4", "point5"],
+      "coords": [-2.6086749, 51.458334, -2.6086434, 51.4583528],
+      "climb": 0.16738510131836648,
+      "distance": 4.062418606791241,
+      "avg_incline_angle": 2.36
+    },
+    "section5": {
+      "points": ["point5", "point6"],
+      "coords": [-2.6086434, 51.4583528, -2.6086327, 51.4583732],
+      "climb": 0.06319046020506391,
+      "distance": 2.558582636564875,
+      "avg_incline_angle": 1.41
+    },
+    "section6": {
+      "points": ["point6", "point7"],
+      "coords": [-2.6086327, 51.4583732, -2.6086132, 51.45842],
+      "climb": 0.13502120971680398,
+      "distance": 5.633387566289839,
+      "avg_incline_angle": 1.37
+    },
+    "section7": {
+      "points": ["point7", "point8"],
+      "coords": [-2.6086132, 51.45842, -2.6086132, 51.4584576],
+      "climb": 0.09471893310546875,
+      "distance": 4.181304459030596,
+      "avg_incline_angle": 1.3
+    },
+    "section8": {
+      "points": ["point8", "point9"],
+      "coords": [-2.6086132, 51.4584576, -2.6086354, 51.4584894],
+      "climb": -0.037681579589836645,
+      "distance": 4.304831428533765,
+      "avg_incline_angle": -0.5
+    },
+    "section9": {
+      "points": ["point9", "point10"],
+      "coords": [-2.6086354, 51.4584894, -2.6086709, 51.4585073],
+      "climb": -0.04219436645508523,
+      "distance": 4.401325083788254,
+      "avg_incline_angle": -0.55
+    },
+    "section10": {
+      "points": ["point10", "point11"],
+      "coords": [-2.6086709, 51.4585073, -2.6087467, 51.4585232],
+      "climb": 0.03503799438475852,
+      "distance": 8.566174873883963,
+      "avg_incline_angle": 0.23
+    },
+    "section11": {
+      "points": ["point11", "point12"],
+      "coords": [-2.6087467, 51.4585232, -2.6088728, 51.4585336],
+      "climb": 0.2313690185546946,
+      "distance": 13.991587039428698,
+      "avg_incline_angle": 0.95
+    }
+  },
+  "path15": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6086217, 51.460386, -2.6086117, 51.4604735],
+      "climb": 0.034076690673828125,
+      "distance": 9.793057282573699,
+      "avg_incline_angle": 0.2
+    }
+  },
+  "path16": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6086217, 51.460386, -2.6086679, 51.4600833],
+      "climb": -0.0315704345703125,
+      "distance": 34.0471709964614,
+      "avg_incline_angle": -0.05
+    }
+  },
+  "path17": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.6086217, 51.460386, -2.6088322, 51.4603047],
+      "climb": 1.2883758544921875,
+      "distance": 24.970548415483414,
+      "avg_incline_angle": 2.95
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6088322, 51.4603047, -2.6088476, 51.4601831],
+      "climb": -0.39788436889647727,
+      "distance": 13.629313485142733,
+      "avg_incline_angle": -1.67
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6088476, 51.4601831, -2.6087629, 51.4600999],
+      "climb": -0.7120666503906321,
+      "distance": 13.165217589193533,
+      "avg_incline_angle": -3.1
+    }
+  },
+  "path18": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.612908, 51.452784, -2.6127558, 51.4527847],
+      "climb": -1.1383819580078125,
+      "distance": 16.829936004283073,
+      "avg_incline_angle": -3.87
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6127558, 51.4527847, -2.6122543, 51.4527879],
+      "climb": -3.5198516845703054,
+      "distance": 55.45529800624273,
+      "avg_incline_angle": -3.63
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6122543, 51.4527879, -2.6121393, 51.4527895],
+      "climb": -1.4632225036621165,
+      "distance": 12.717551676308327,
+      "avg_incline_angle": -6.56
+    },
+    "section4": {
+      "points": ["point4", "point5"],
+      "coords": [-2.6121393, 51.4527895, -2.6120314, 51.4527893],
+      "climb": -1.0434837341308594,
+      "distance": 11.931233926733201,
+      "avg_incline_angle": -5.0
+    }
+  },
+  "path19": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.612908, 51.452784, -2.6125378, 51.4521721],
+      "climb": -1.7027626037597585,
+      "distance": 79.41018540044689,
+      "avg_incline_angle": -1.23
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6125378, 51.4521721, -2.6123602, 51.4520815],
+      "climb": -2.117454528808601,
+      "distance": 22.072043863204357,
+      "avg_incline_angle": -5.48
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6123602, 51.4520815, -2.612128, 51.4518918],
+      "climb": -0.9522628784179688,
+      "distance": 33.23058054184743,
+      "avg_incline_angle": -1.64
+    }
+  },
+  "path20": {
+    "section1": {
+      "points": ["point1", "point2"],
+      "coords": [-2.612908, 51.452784, -2.6130332, 51.4528224],
+      "climb": 0.9335098266601562,
+      "distance": 14.487809187371893,
+      "avg_incline_angle": 3.69
+    },
+    "section2": {
+      "points": ["point2", "point3"],
+      "coords": [-2.6130332, 51.4528224, -2.6133391, 51.4529457],
+      "climb": 2.116363525390625,
+      "distance": 36.49879153123194,
+      "avg_incline_angle": 3.32
+    },
+    "section3": {
+      "points": ["point3", "point4"],
+      "coords": [-2.6133391, 51.4529457, -2.6137367, 51.4531031],
+      "climb": 4.092445373535156,
+      "distance": 47.321439781669426,
+      "avg_incline_angle": 4.94
+    }
+  }
+}

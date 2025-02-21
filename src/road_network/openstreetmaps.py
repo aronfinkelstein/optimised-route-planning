@@ -1,7 +1,7 @@
 import osmnx as ox
 import requests
 import pandas as pd
-import graph as gr
+import src.road_network.graph as gr
 import numpy as np
 
 central_point = (51.456127, -2.608071) #latitude, longitude
