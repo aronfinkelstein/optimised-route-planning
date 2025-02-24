@@ -1,0 +1,6 @@
+{
+  "frontal_area": 2,
+  "drag_coeff": 1.05,
+  "mass": 400,
+  "roll_res": 0.007
+}
