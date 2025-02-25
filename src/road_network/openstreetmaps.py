@@ -1,7 +1,7 @@
 import osmnx as ox
 import requests
 import pandas as pd
-import src.road_network.graph as gr
+import graph as gr
 import numpy as np
 
 central_point = (51.456127, -2.608071) #latitude, longitude
@@ -156,10 +156,7 @@ def add_randn_weights():
     df['weights'] = np.random.rand(len(df))
     df.to_csv('../data/random_weight_edge.csv', index=False)
 
-
-
 if __name__ == "__main__":
     start_node = int(input("Start Node: "))
     end_node = int(input("End Node: "))
     plot_graph(start_node, end_node)
-    # get_way_elevation()

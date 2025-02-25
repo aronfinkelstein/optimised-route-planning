@@ -1,12 +1,11 @@
 import numpy as np
 
 
-def physical_model(vehicle_data, static_data, road_data):
+def physical_model(vehicle_data, static_data: dict, road_data):
     '''
     calculate power required to move the vehicle along specified route
     '''
     avg_incline_angle = np.radians(road_data["avg_incline_angle"])
-
     #Force from air resistance
     drag_force = 0.5 * static_data["air_dens"] * vehicle_data["frontal_area"] * vehicle_data["drag_coeff"] * road_data["velocity"]**2
     #Force from overcoming incline, or rolling down incline
@@ -19,31 +18,36 @@ def physical_model(vehicle_data, static_data, road_data):
     tract_power = max(0, tract_force * road_data["velocity"])
     return tract_power
 
-def battery_model(battery_data, vehicle_data, static_data, road_data):
-    tract_power = physical_model(vehicle_data, static_data, road_data)
+def battery_power_model(tract_power, motor_eff):
+    '''
+    Takes in required power for the motor, and finds power required from the battery.
+    '''
+    P_batt = tract_power/motor_eff
+    return P_batt
+
+def discharge_current(OCV:float, R_i: float, P_batt: float)-> float:
+    '''
+    Find discharge currrent
+    '''
+    I_l = (OCV - (OCV**2 -4*OCV*P_batt)**0.5)/(2*R_i)
+    return I_l
+
+def find_crate(current:float, capacity : float)->float:
+    '''
+    Find the discharge rate from an instantaneous current value
+    '''
+    c_rate = current / capacity
+    return c_rate
 
 
-
-
-
-    OCV = vehicle_params["OCV"]  # Open circuit voltage
-    R1_t = vehicle_params["R1_t"]  # Resistance 1
-    R2_t = vehicle_params["R2_t"]  # Resistance 2
-    Ri = vehicle_params["Ri"]  # Internal resistance
-    ns = vehicle_params["ns"]  # Number of series cells
-    np = vehicle_params["np"]  # Number of parallel cells
-    eta_em = vehicle_params["eta_em"]  # Motor efficiency
-    eta_pe = vehicle_params["eta_pe"]  # Power electronics efficiency
-
-
-    denominator = (OCV) * ns * np
-    I_t = tract_power / denominator * (eta_em * eta_pe) ** np.sign(tract_power)
-
-    return I_t
-
-def get_edge_consumption(params: dict)-> float:
+def get_edge_consumption(power: float, road_data: dict)-> float:
     '''
     Function that takes in the params from the vehicle and the edge and then calculates the route
     '''
-    pass
+    speed = road_data["velocity"]
+    distance = road_data["distance"]
+    time = distance/speed
+    energy_J = time * power
+    energy = energy_J/3600
 
+    return energy

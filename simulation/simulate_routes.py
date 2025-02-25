@@ -6,50 +6,30 @@ import pandas as pd
 import random
 from pprint import pprint
 
-with open("./data_acquisition/test_data.json", "r") as file:
-    complete_road_data = json.load(file)
-with open("src/vehicle_models/static_data.json", "r") as file:
-    static_data = json.load(file)
-with open("src/vehicle_models/vehicle_data.json", "r") as file:
-    vehicle_data = json.load(file)
-with open("src/vehicle_models/battery_data.json", "r") as file:
-    battery_data = json.load(file)
-
-road_network_file = './data/random_weight_edge.csv' 
-road_df = pd.read_csv(road_network_file)
-
-OCV = battery_data["OCV"]
-capacity = battery_data["Capacity"]
-R_int = battery_data["R_internal"]
-motor_eff = vehicle_data["motor_eff"]
-
-graph = cg.create_osmnx_compatible_graph('./data/random_weight_edge.csv')
-
-
-
-def simulate_route():
+def find_route(map_data:dict, road_df:dict, graph):
+    '''
+    Takes in a overall map, road and graph, simulates a route and returns data for that route.
+    '''
     nodes = road_df["u"].to_list()
     random_values = random.sample(nodes, 2)
     route = cg.dijkstra(graph, random_values[0], random_values[1])
 
-    with open("data_acquisition/test_data.json", "r") as file:
-        map_data = json.load(file)
-
-
     cg.find_path_with_nodes(map_data, 17585126, 1130492591)
-
     route_dict = {}
-
     i = 0
     for i in range(len(route)-1):
         path = cg.find_path_with_nodes(map_data, route[i], route [i + 1])
         route_dict.update(path)
 
+    return route_dict
 
+def return_route_data(route_dict:dict, vehicle_data:dict, static_data:dict, motor_eff:float)->float:
+    '''
+    Analyses a route and returns consumption, distance, and climb data. 
+    '''
     consumptions = []
     distances = []
     climbs = []
-
     for path, pathdata in route_dict.items():
         for section, data in pathdata.items():
             if "section" in section: 
