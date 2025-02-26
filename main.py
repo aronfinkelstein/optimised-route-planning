@@ -1,21 +1,22 @@
-import src.road_network.create_graph as cg
-import src.vehicle_models.energy_consumption as ec
+import models.road_network.create_graph as cg
+import models.vehicle_models.energy_consumption as ec
 import json
 import math
 import pandas as pd
 import random
 from pprint import pprint
 
-with open("./data_acquisition/test_data.json", "r") as file:
+with open("./data_collection/data/test_data.json", "r") as file:
     complete_road_data = json.load(file)
-with open("src/vehicle_models/static_data.json", "r") as file:
+with open("models/vehicle_models/static_data.json", "r") as file:
     static_data = json.load(file)
-with open("src/vehicle_models/vehicle_data.json", "r") as file:
+with open("models/vehicle_models/vehicle_data.json", "r") as file:
     vehicle_data = json.load(file)
-with open("src/vehicle_models/battery_data.json", "r") as file:
+with open("models/vehicle_models/battery_data.json", "r") as file:
     battery_data = json.load(file)
 
-road_network_file = './data/random_weight_edge.csv' 
+
+road_network_file = './data_collection/data/random_weight_edge.csv' 
 road_df = pd.read_csv(road_network_file)
 
 OCV = battery_data["OCV"]
@@ -23,8 +24,7 @@ capacity = battery_data["Capacity"]
 R_int = battery_data["R_internal"]
 motor_eff = vehicle_data["motor_eff"]
 
-graph = cg.create_osmnx_compatible_graph('./data/random_weight_edge.csv')
-
+graph = cg.create_osmnx_compatible_graph('./data_collection/data/random_weight_edge.csv')
 
 
 def simulate_route():
@@ -32,7 +32,7 @@ def simulate_route():
     random_values = random.sample(nodes, 2)
     route = cg.dijkstra(graph, random_values[0], random_values[1])
 
-    with open("data_acquisition/test_data.json", "r") as file:
+    with open("./data_collection/data/analysed_dis_data.json", "r") as file:
         map_data = json.load(file)
 
 

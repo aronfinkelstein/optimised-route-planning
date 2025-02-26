@@ -1,5 +1,5 @@
-import src.road_network.create_graph as cg
-import src.vehicle_models.energy_consumption as ec
+import models.road_network.create_graph as cg
+import models.vehicle_models.energy_consumption as ec
 import json
 import math
 import pandas as pd
