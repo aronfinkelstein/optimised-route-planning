@@ -24,3 +24,4 @@ def calculate_path_weight(distance, energy, c_rate, alpha=0.33, beta=0.33, gamma
     # Calculate weighted sum
     weight = alpha * distance + beta * energy + gamma * c_rate
     return weight
+
