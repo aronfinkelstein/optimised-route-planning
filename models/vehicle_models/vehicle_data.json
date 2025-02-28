@@ -1,0 +1,7 @@
+{
+  "frontal_area": 2,
+  "drag_coeff": 1.05,
+  "mass": 200,
+  "roll_res": 0.007,
+  "motor_eff": 0.6
+}

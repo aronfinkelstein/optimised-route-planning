@@ -1,0 +1,14 @@
+./vrpvenv
+
+./src/cache
+./src/__pycache__
+
+./data_acquisition/__pycache__
+./dijkstra/__pycache__
+
+.env
+
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
