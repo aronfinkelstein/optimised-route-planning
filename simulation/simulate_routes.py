@@ -36,18 +36,37 @@ def find_route(map_data:dict, road_df:dict, graph, start_node: int, end_node: in
     G = wi.add_weights_to_graph(graph, weights_type)
 
     route = cg.dijkstra(G, start_node, end_node)
+    print("---Route---")
+    print(route)
 
     route_dict = {}
-    i = 0
+    missing_segments = []
+    
     for i in range(len(route)-1):
-        path = cg.find_path_with_nodes(map_data, route[i], route [i + 1])
+        current_node = route[i]
+        next_node = route[i + 1]        
+        path = cg.find_path_with_nodes(map_data, current_node, next_node)
+        
+        if not path:  # If no path found between these nodes
+            missing_segments.append((current_node, next_node))
+            print(f"❌ No path found between nodes {current_node} and {next_node}")
+        else:
+            # Optionally print the first few characters of each path key
+            path_keys = list(path.keys())
+            # if path_keys:
+            #     print(f"  First few path keys: {path_keys[:3]}")
+        
         route_dict.update(path)
 
-    if plot:
-        fig, ax = cg.plot_graph_with_routes(graph,route)
+    if missing_segments:
+        print(f"Missing {len(missing_segments)} route segments out of {len(route)-1} total segments")
+        print(f"Missing segments: {missing_segments}")
     else:
-        pass
-
+        print(f"All {len(route)-1} route segments were found successfully")
+        
+    if plot:
+        fig, ax = cg.plot_graph_with_routes(graph, route)
+    
     return route_dict
 
 def return_route_data(route_dict:dict, vehicle_data:dict, static_data:dict, motor_eff:float)->float:
@@ -58,10 +77,14 @@ def return_route_data(route_dict:dict, vehicle_data:dict, static_data:dict, moto
     distances = []
     climbs = []
     for path, pathdata in route_dict.items():
+        pprint(route_dict)
         for section, data in pathdata.items():
             if "section" in section: 
-                data["velocity"] = 8.9408
-                data["acceleration"] = 0
+                data["velocity"] = vehicle_data["max_speed"]
+                if pathdata["smooth"]:
+                    data["acceleration"] = 0
+                else:
+                    data["acceleration"] = vehicle_data["max_acceleration"]
                 tract_power = ec.physical_model(vehicle_data, static_data, data)
                 batt_power = ec.battery_power_model(tract_power, motor_eff)
 
@@ -75,4 +98,98 @@ def return_route_data(route_dict:dict, vehicle_data:dict, static_data:dict, moto
     total_consumption = sum(consumptions)
     total_climb = sum(climbs)
 
-    return total_distance,total_consumption,total_climb
+    return total_distance, total_consumption, total_climb
+
+def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data: dict, motor_eff: float, max_motor_power: float) -> tuple:
+    '''
+    Analyses a route and returns consumption, distance, and climb data,
+    incorporating acceleration models for more accurate energy estimation.
+    
+    Parameters:
+    route_dict (dict): Dictionary containing route information
+    vehicle_data (dict): Vehicle characteristics
+    static_data (dict): Static environmental values
+    motor_eff (float): Motor efficiency
+    max_motor_power (float): Maximum motor power in Watts
+    
+    Returns:
+    tuple: (total_distance, total_consumption, total_climb)
+    '''
+    consumptions = []
+    distances = []
+    climbs = []
+    
+    # Target velocity (constant across the route)
+    target_velocity = vehicle_data["max_speed"]
+    
+    # Process each path in the route
+    for path, pathdata in route_dict.items():
+        # Starting velocity for each path
+        current_velocity = 0  # Always start a new path from zero
+        
+        # Get all sections for this path in the correct order
+        sections = []
+        for section, data in pathdata.items():
+            if "section" in section:
+                # Create a copy of the data to avoid modifying the original
+                section_data = data.copy()
+                section_data["section_name"] = section
+                sections.append(section_data)
+        
+        # Sort sections if needed (assuming they're already in order)
+        
+        # Process each section in the path
+        for i, section_data in enumerate(sections):
+            # Determine if this is a start from zero
+            if i == 0 or not pathdata["smooth"]:
+                start_from_zero = True
+            else:
+                start_from_zero = False
+            
+            # Reset velocity if starting from zero
+            if start_from_zero:
+                current_velocity = 0
+                
+            # Process section with acceleration model
+            segment_result = ec.calculate_segment_energy_with_acceleration(
+                current_velocity, target_velocity, section_data,
+                vehicle_data, static_data, max_motor_power, motor_eff
+            )
+            
+            # Update current velocity for next section
+            current_velocity = segment_result["final_velocity"]
+            
+            # Extract results
+            if "total_energy" in segment_result:
+                energy = segment_result["total_energy"]
+            else:
+                energy = segment_result["energy_consumption"]
+            
+            # Append to results
+            distances.append(section_data['distance'])
+            consumptions.append(energy)
+            climbs.append(section_data['climb'])
+            
+            # Optional: Store detailed results in the original data structure
+            # route_dict[path][section]["energy_details"] = segment_result
+    
+    total_distance = sum(distances)
+    total_consumption = sum(consumptions)
+    total_climb = sum(climbs)
+    
+
+
+    # for path, pathdata in route_dict.items():
+    #     print(f"\nPath: {path}")
+        
+    #     # Within section loop:
+    #     for i, section_data in enumerate(sections):
+    #         print(f"\n  Section: {section_data['section_name']}")
+    #         print(f"  Starting velocity: {current_velocity:.2f} m/s")
+    #         print(f"  Distance: {section_data['distance']:.1f}m, Climb: {section_data['climb']:.1f}m, Incline: {section_data.get('avg_incline_angle', 0):.2f}°")
+            
+    #         # After calculation:
+    #         print(f"  Final velocity: {segment_result['final_velocity']:.2f} m/s")
+    #         print(f"  Energy consumption: {energy:.2f} Wh")
+
+    return total_distance, total_consumption, total_climb

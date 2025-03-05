@@ -5,7 +5,6 @@ import random
 import models.weighting.weight_model as wm
 
 
-
 def add_weights_to_graph(G, weights_type = 'default', default_weight=1.0):
     """
     Add weights to a graph based on an existing attribute or a default value.
