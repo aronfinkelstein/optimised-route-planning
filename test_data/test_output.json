@@ -1,0 +1,1447 @@
+{
+    "path364": {
+        "section1": {
+            "energy": 1.500042088606167,
+            "distance": 17.683813280843786,
+            "climb": -0.1674041748046875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8866865845606703,
+            "time": 6.315647600301353,
+            "current": 18.52862933519102,
+            "c_rate": 0.3194591264688107,
+            "reached_target": true
+        },
+        "section2": {
+            "energy": 0.0,
+            "distance": 19.442877789718548,
+            "climb": -0.9574432373046875,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.471942462449741,
+            "current": 0.0,
+            "c_rate": 0.0,
+            "reached_target": false
+        },
+        "section2_1": {
+            "energy": 0.522275902327018,
+            "distance": 19.442877789718548,
+            "climb": 0.015289306640625,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.471942462449741,
+            "current": 11.560495706065304,
+            "c_rate": 0.19931889148388454,
+            "reached_target": false
+        }
+    },
+    "path138": {
+        "section1": {
+            "energy": 1.3809044125176888,
+            "distance": 6.0634053508554455,
+            "climb": -0.15386962890625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 2.5860055682716,
+            "time": 2.165501911019802,
+            "current": 53.87262138178077,
+            "c_rate": 0.9288382996858753,
+            "reached_target": true
+        },
+        "section2": {
+            "energy": 1.133965738242372,
+            "distance": 13.660422383238553,
+            "climb": -0.5195693969726562,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.1478415205696335,
+            "time": 4.878722279728055,
+            "current": 18.11604805233678,
+            "c_rate": 0.31234565607477205,
+            "reached_target": true
+        },
+        "section3": {
+            "energy": 1.370322101753681,
+            "distance": 4.44112736544292,
+            "climb": -0.1453399658203125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 3.530635063972368,
+            "time": 1.5861169162296145,
+            "peak_current": 77.21829988884483,
+            "peak_c_rate": 1.3313499980835315,
+            "avg_current": 77.21829988884481,
+            "avg_c_rate": 1.3313499980835313,
+            "acceleration_phase": {
+                "distance": 4.441127365442919,
+                "time": 1.5861169162296143,
+                "energy": 1.370322101753681,
+                "discharge_current": 77.21829988884483,
+                "c_rate": 1.3313499980835315
+            },
+            "constant_phase": {
+                "distance": 8.881784197001252e-16,
+                "time": 1.5860328923216522e-16,
+                "energy": 0.0,
+                "discharge_current": 0.0,
+                "c_rate": 0.0
+            },
+            "reached_target": true
+        }
+    },
+    "path526": {
+        "section1": {
+            "energy": 1.6016972034700108,
+            "distance": 18.83224727387041,
+            "climb": -0.06746673583984375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8326143859504155,
+            "time": 6.725802597810862,
+            "peak_current": 18.57985186836565,
+            "peak_c_rate": 0.3203422735925112,
+            "avg_current": 18.57985186836565,
+            "avg_c_rate": 0.32034227359251116,
+            "acceleration_phase": {
+                "distance": 18.832247273870408,
+                "time": 6.725802597810861,
+                "energy": 1.6016972034700108,
+                "discharge_current": 18.57985186836565,
+                "c_rate": 0.3203422735925112
+            },
+            "constant_phase": {
+                "distance": 3.552713678800501e-15,
+                "time": 6.344131569286609e-16,
+                "energy": 8.078923911379799e-17,
+                "discharge_current": 9.748863365069198,
+                "c_rate": 0.16808385112188273
+            },
+            "reached_target": true
+        }
+    },
+    "path660": {
+        "section1": {
+            "energy": 1.6230575501411568,
+            "distance": 12.82725555331393,
+            "climb": 0.02935791015625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.2223971008318344,
+            "time": 4.581162697612119,
+            "current": 28.232249173740094,
+            "c_rate": 0.4867629167886223,
+            "reached_target": true
+        },
+        "section2": {
+            "energy": 1.627947866878915,
+            "distance": 11.086735193971156,
+            "climb": 0.055419921875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.4143027433835174,
+            "time": 3.9595482835611278,
+            "peak_current": 33.121326459736906,
+            "peak_c_rate": 0.5710573527540845,
+            "avg_current": 33.121326459736906,
+            "avg_c_rate": 0.5710573527540845,
+            "acceleration_phase": {
+                "distance": 11.086735193971155,
+                "time": 3.9595482835611273,
+                "energy": 1.627947866878915,
+                "discharge_current": 33.121326459736906,
+                "c_rate": 0.5710573527540845
+            },
+            "constant_phase": {
+                "distance": 1.7763568394002505e-15,
+                "time": 3.1720657846433045e-16,
+                "energy": 5.4475156942226285e-17,
+                "discharge_current": 13.245560731328112,
+                "c_rate": 0.22837173674703642
+            },
+            "reached_target": true
+        },
+        "section2_1": {
+            "energy": 1.410001411853914,
+            "distance": 11.086735193971156,
+            "climb": -0.184051513671875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.4143027433835174,
+            "time": 3.9595482835611278,
+            "peak_current": 28.386335481439566,
+            "peak_c_rate": 0.48941957726619945,
+            "avg_current": 28.386335481439563,
+            "avg_c_rate": 0.4894195772661994,
+            "acceleration_phase": {
+                "distance": 11.086735193971155,
+                "time": 3.9595482835611273,
+                "energy": 1.410001411853914,
+                "discharge_current": 28.386335481439566,
+                "c_rate": 0.48941957726619945
+            },
+            "constant_phase": {
+                "distance": 1.7763568394002505e-15,
+                "time": 3.1720657846433045e-16,
+                "energy": 1.9554987096623064e-17,
+                "discharge_current": 4.668976506623714,
+                "c_rate": 0.08049959494178818
+            },
+            "reached_target": true
+        },
+        "section3": {
+            "energy": 1.4100431215946279,
+            "distance": 17.80584048559722,
+            "climb": -0.2679901123046875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8806099331667736,
+            "time": 6.35922874485615,
+            "current": 17.249790462864993,
+            "c_rate": 0.297410180394224,
+            "reached_target": true
+        },
+        "section3_1": {
+            "energy": 0.5440406701919825,
+            "distance": 17.80584048559722,
+            "climb": -1.2247161865234375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8806099331667736,
+            "time": 6.35922874485615,
+            "current": 6.504494634815465,
+            "c_rate": 0.1121464592209563,
+            "reached_target": true
+        },
+        "section3_2": {
+            "energy": 0.6032157518375924,
+            "distance": 17.80584048559722,
+            "climb": -1.1591339111328125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8806099331667736,
+            "time": 6.35922874485615,
+            "current": 7.222945482466336,
+            "c_rate": 0.12453354280114373,
+            "reached_target": true
+        },
+        "section4": {
+            "energy": 1.166315313443321,
+            "distance": 16.554304431758652,
+            "climb": -0.5193023681640625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9471856739518851,
+            "time": 5.912251582770947,
+            "current": 15.281850192351207,
+            "c_rate": 0.2634801757301932,
+            "reached_target": true
+        },
+        "section4_1": {
+            "energy": 1.1846815064531877,
+            "distance": 16.554304431758652,
+            "climb": -0.49909210205078125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9471856739518851,
+            "time": 5.912251582770947,
+            "current": 15.530816878023757,
+            "c_rate": 0.26777270479351306,
+            "reached_target": true
+        },
+        "section4_2": {
+            "energy": 1.224039352027017,
+            "distance": 16.554304431758652,
+            "climb": -0.45697784423828125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9471856739518851,
+            "time": 5.912251582770947,
+            "current": 16.065272340576975,
+            "c_rate": 0.2769874541478789,
+            "reached_target": true
+        },
+        "section4_3": {
+            "energy": 1.2843920739335948,
+            "distance": 16.554304431758652,
+            "climb": -0.3889961242675781,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9471856739518851,
+            "time": 5.912251582770947,
+            "current": 16.887312183643175,
+            "c_rate": 0.29116055489039955,
+            "reached_target": true
+        },
+        "section5": {
+            "energy": 1.4098461728503833,
+            "distance": 4.664105267390911,
+            "climb": -0.10406112670898438,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 3.361845220266941,
+            "time": 1.66575188121104,
+            "current": 75.28631238587344,
+            "c_rate": 1.2980398687219559,
+            "reached_target": true
+        },
+        "section6": {
+            "energy": 1.1385443950994414,
+            "distance": 8.142460057908115,
+            "climb": -0.44721221923828125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.9257079418856071,
+            "time": 2.9080214492528986,
+            "current": 31.420682874580308,
+            "c_rate": 0.541735911630695,
+            "reached_target": true
+        },
+        "section7": {
+            "energy": 0.7481340813482321,
+            "distance": 15.43143367028598,
+            "climb": -0.9687919616699219,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.0161077923817698,
+            "time": 5.511226310816421,
+            "peak_current": 10.406669814770773,
+            "peak_c_rate": 0.17942534163397883,
+            "avg_current": 10.406669814770773,
+            "avg_c_rate": 0.17942534163397883,
+            "acceleration_phase": {
+                "distance": 15.431433670285978,
+                "time": 5.511226310816421,
+                "energy": 0.7481340813482321,
+                "discharge_current": 10.406669814770773,
+                "c_rate": 0.17942534163397883
+            },
+            "constant_phase": {
+                "distance": 1.7763568394002505e-15,
+                "time": 3.1720657846433045e-16,
+                "energy": 0.0,
+                "discharge_current": 0.0,
+                "c_rate": 0.0
+            },
+            "reached_target": true
+        },
+        "section7_1": {
+            "energy": 0.89717891900515,
+            "distance": 15.43143367028598,
+            "climb": -0.8023834228515625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.0161077923817698,
+            "time": 5.511226310816421,
+            "peak_current": 12.536775997362106,
+            "peak_c_rate": 0.21615131029934667,
+            "avg_current": 12.536775997362106,
+            "avg_c_rate": 0.21615131029934667,
+            "acceleration_phase": {
+                "distance": 15.431433670285978,
+                "time": 5.511226310816421,
+                "energy": 0.89717891900515,
+                "discharge_current": 12.536775997362106,
+                "c_rate": 0.21615131029934667
+            },
+            "constant_phase": {
+                "distance": 1.7763568394002505e-15,
+                "time": 3.1720657846433045e-16,
+                "energy": 0.0,
+                "discharge_current": 0.0,
+                "c_rate": 0.0
+            },
+            "reached_target": true
+        }
+    },
+    "path655": {
+        "section1": {
+            "energy": 1.911191515076902,
+            "distance": 18.316949480804066,
+            "climb": 0.2797088623046804,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 23.014925714907868,
+            "c_rate": 0.39680906405013566,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 1.1649436371523634,
+            "distance": 18.316949480804066,
+            "climb": -0.5430030822753906,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 13.74969841229369,
+            "c_rate": 0.23706376572920154,
+            "reached_target": true
+        },
+        "section1_2": {
+            "energy": 0.5817550932359059,
+            "distance": 18.316949480804066,
+            "climb": -1.18829345703125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 6.7650461545254,
+            "c_rate": 0.11663872680216207,
+            "reached_target": true
+        },
+        "section1_3": {
+            "energy": 1.0314106924949626,
+            "distance": 18.316949480804066,
+            "climb": -0.6919517517089773,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 12.13152020935972,
+            "c_rate": 0.20916414154068483,
+            "reached_target": true
+        },
+        "section1_4": {
+            "energy": 1.4407854706274952,
+            "distance": 18.316949480804066,
+            "climb": -0.23950958251953125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 17.129603030535705,
+            "c_rate": 0.29533798328509836,
+            "reached_target": true
+        },
+        "section1_5": {
+            "energy": 1.745692599436659,
+            "distance": 18.316949480804066,
+            "climb": 0.096038818359375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 20.926314901102216,
+            "c_rate": 0.3607985327776244,
+            "reached_target": true
+        },
+        "section1_6": {
+            "energy": 1.655674913008663,
+            "distance": 18.316949480804066,
+            "climb": -0.002254486083984375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 19.79860170753927,
+            "c_rate": 0.3413552018541253,
+            "reached_target": true
+        },
+        "section1_7": {
+            "energy": 0.8282744175600427,
+            "distance": 18.316949480804066,
+            "climb": -0.9165229797363281,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8560377379668183,
+            "time": 6.541767671715738,
+            "current": 9.69167782143952,
+            "c_rate": 0.16709789347309517,
+            "reached_target": true
+        }
+    },
+    "path135": {
+        "section1": {
+            "energy": 1.213274814271224,
+            "distance": 17.957010649022855,
+            "climb": -0.48494720458984375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8731965640869761,
+            "time": 6.413218088936735,
+            "peak_current": 14.634973229198174,
+            "peak_c_rate": 0.2523271246413478,
+            "avg_current": 14.634973229198172,
+            "avg_c_rate": 0.25232712464134777,
+            "acceleration_phase": {
+                "distance": 17.957010649022852,
+                "time": 6.413218088936734,
+                "energy": 1.213274814271224,
+                "discharge_current": 14.634973229198174,
+                "c_rate": 0.2523271246413478
+            },
+            "constant_phase": {
+                "distance": 3.552713678800501e-15,
+                "time": 6.344131569286609e-16,
+                "energy": 5.3194397899102595e-18,
+                "discharge_current": 0.6296875151417325,
+                "c_rate": 0.010856681295547111
+            },
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 0.7100848876585785,
+            "distance": 17.957010649022855,
+            "climb": 0.2652435302734304,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.206609044468367,
+            "current": 17.226550559356753,
+            "c_rate": 0.29700949240270264,
+            "reached_target": false
+        },
+        "section1_2": {
+            "energy": 0.0,
+            "distance": 17.957010649022855,
+            "climb": -1.0602874755859304,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.206609044468367,
+            "current": 0.0,
+            "c_rate": 0.0,
+            "reached_target": false
+        },
+        "section2": {
+            "energy": 0.0,
+            "distance": 11.877615926722683,
+            "climb": -0.8915061950683594,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.1210028440576223,
+            "current": 0.0,
+            "c_rate": 0.0,
+            "reached_target": false
+        },
+        "section2_1": {
+            "energy": 0.418850982597362,
+            "distance": 11.877615926722683,
+            "climb": 0.12119293212889914,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.1210028440576223,
+            "current": 15.298422171789099,
+            "c_rate": 0.26376589951360513,
+            "reached_target": false
+        },
+        "section3": {
+            "energy": 0.2325630323126356,
+            "distance": 12.282019354692322,
+            "climb": -0.09564971923827414,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.1932177419093435,
+            "current": 8.089123097459208,
+            "c_rate": 0.13946763961136566,
+            "reached_target": false
+        },
+        "section3_1": {
+            "energy": 0.5207146670336458,
+            "distance": 12.282019354692322,
+            "climb": 0.2215118408203196,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.1932177419093435,
+            "current": 18.52118600024145,
+            "c_rate": 0.3193307931076112,
+            "reached_target": false
+        }
+    },
+    "path127": {
+        "section1": {
+            "energy": 1.5093561216141538,
+            "distance": 16.346691502126518,
+            "climb": -0.13919448852540484,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9592155084079375,
+            "time": 5.838104107902328,
+            "current": 20.2439342557701,
+            "c_rate": 0.3490333492374155,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 1.7995976523934654,
+            "distance": 16.346691502126518,
+            "climb": 0.17890548706055398,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9592155084079375,
+            "time": 5.838104107902328,
+            "current": 24.354486969326956,
+            "c_rate": 0.4199049477470165,
+            "reached_target": true
+        },
+        "section1_2": {
+            "energy": 1.6881716602486119,
+            "distance": 16.346691502126518,
+            "climb": 0.05669403076171875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9592155084079375,
+            "time": 5.838104107902328,
+            "current": 22.767214945229775,
+            "c_rate": 0.39253818871085816,
+            "reached_target": true
+        },
+        "section1_3": {
+            "energy": 1.5223139685696863,
+            "distance": 16.346691502126518,
+            "climb": -0.12436676025391336,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9592155084079375,
+            "time": 5.838104107902328,
+            "current": 20.42580900079532,
+            "c_rate": 0.3521691207033676,
+            "reached_target": true
+        }
+    },
+    "path132": {
+        "section1": {
+            "energy": 1.1408938229581838,
+            "distance": 11.976364007256434,
+            "climb": -0.4913520812988139,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.30924544298249,
+            "time": 4.277272859734441,
+            "current": 20.916503763835443,
+            "c_rate": 0.3606293752385421,
+            "reached_target": true
+        },
+        "section2": {
+            "energy": 1.5502061941326981,
+            "distance": 10.847977750763388,
+            "climb": -0.027187347412109375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.4454306931904035,
+            "time": 3.8742777681297818,
+            "current": 32.16497016685764,
+            "c_rate": 0.554568451152718,
+            "reached_target": true
+        }
+    },
+    "path500": {
+        "section1": {
+            "energy": 1.0755308035335105,
+            "distance": 2.1744606193154423,
+            "climb": 0.01996994018553977,
+            "initial_velocity": 0,
+            "final_velocity": 4.730018903483309,
+            "acceleration": 5.144512305390215,
+            "time": 0.9194299911630853,
+            "current": 115.54952611008667,
+            "c_rate": 1.9922332087945978,
+            "reached_target": false
+        },
+        "section2": {
+            "energy": 1.588222538811043,
+            "distance": 12.614654798491557,
+            "climb": -0.007122039794921875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.2429987384097891,
+            "time": 4.505233856604128,
+            "current": 28.082609606790854,
+            "c_rate": 0.48418292425501475,
+            "reached_target": true
+        },
+        "section3": {
+            "energy": 1.497051424638476,
+            "distance": 13.455237919180862,
+            "climb": -0.11726760864257812,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.1653454286116836,
+            "time": 4.805442113993165,
+            "current": 24.628623580588638,
+            "c_rate": 0.4246314410446317,
+            "reached_target": true
+        },
+        "section4": {
+            "energy": 1.4827343021280919,
+            "distance": 17.409540900824208,
+            "climb": -0.18297958374023438,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9006555709494712,
+            "time": 6.2176931788657885,
+            "current": 18.606517364357238,
+            "c_rate": 0.32080202352340065,
+            "reached_target": true
+        },
+        "section5": {
+            "energy": 1.7282883303378571,
+            "distance": 11.688257264201665,
+            "climb": 0.15972137451171875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.3415173575982182,
+            "time": 4.174377594357738,
+            "current": 33.37189920526317,
+            "c_rate": 0.5753775725045374,
+            "reached_target": true
+        },
+        "section5_1": {
+            "energy": 1.9968222018118051,
+            "distance": 11.688257264201665,
+            "climb": 0.45595169067383523,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.3415173575982182,
+            "time": 4.174377594357738,
+            "current": 39.05392477780133,
+            "c_rate": 0.673343530651747,
+            "reached_target": true
+        },
+        "section6": {
+            "energy": 1.778982727353937,
+            "distance": 14.311277462281144,
+            "climb": 0.18194198608397727,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.0956394382909747,
+            "time": 5.111170522243266,
+            "current": 27.703227810599884,
+            "c_rate": 0.4776418588034463,
+            "reached_target": true
+        }
+    },
+    "path157": {
+        "section1": {
+            "energy": 1.6291928978072583,
+            "distance": 11.392529020031303,
+            "climb": 0.05316925048828125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.3763405800792874,
+            "time": 4.068760364296894,
+            "current": 32.18985086358593,
+            "c_rate": 0.5549974286825161,
+            "reached_target": true
+        },
+        "section2": {
+            "energy": 0.23900221688893736,
+            "distance": 12.83704254124096,
+            "climb": -0.10599136352539062,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.2923290252216,
+            "current": 7.951347135708922,
+            "c_rate": 0.1370921919949814,
+            "reached_target": false
+        },
+        "section3": {
+            "energy": 0.16225484356422581,
+            "distance": 12.567310104786378,
+            "climb": -0.18109130859375,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.2441625187118532,
+            "current": 5.4852464645041366,
+            "c_rate": 0.09457321490524373,
+            "reached_target": false
+        },
+        "section4": {
+            "energy": 0.5631419012823373,
+            "distance": 14.071828212926228,
+            "climb": 0.21492767333983664,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.5128264665939692,
+            "current": 17.441806648522267,
+            "c_rate": 0.3007208042848667,
+            "reached_target": false
+        },
+        "section5": {
+            "energy": 0.9799086303054052,
+            "distance": 19.053591928133912,
+            "climb": 0.5309181213378906,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.402427130023913,
+            "current": 22.670990783382194,
+            "c_rate": 0.39087915143762403,
+            "reached_target": false
+        },
+        "section5_1": {
+            "energy": 0.690025318429628,
+            "distance": 19.053591928133912,
+            "climb": 0.21441268920899148,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.402427130023913,
+            "current": 15.725477526957583,
+            "c_rate": 0.27112892287857904,
+            "reached_target": false
+        },
+        "section6": {
+            "energy": 0.0,
+            "distance": 14.622062729174806,
+            "climb": -0.499622344970696,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.6110826302097867,
+            "current": 0.0,
+            "c_rate": 0.0,
+            "reached_target": false
+        },
+        "section6_1": {
+            "energy": 0.16792082543122488,
+            "distance": 14.622062729174806,
+            "climb": -0.2344818115234446,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.6110826302097867,
+            "current": 4.872776935434757,
+            "c_rate": 0.0840133954385303,
+            "reached_target": false
+        }
+    },
+    "path730": {
+        "section1": {
+            "energy": 1.4349888840023939,
+            "distance": 3.4523222416057,
+            "climb": -0.061496734619140625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 4.541870341949052,
+            "time": 1.232972229144893,
+            "current": 114.69409168955866,
+            "c_rate": 1.9774843394751493,
+            "reached_target": true
+        }
+    },
+    "path181": {
+        "section1": {
+            "energy": 1.7354748850169752,
+            "distance": 17.68001481339341,
+            "climb": 0.0941009521484446,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.886877084974029,
+            "time": 6.314291004783361,
+            "current": 21.58423683852302,
+            "c_rate": 0.37214201445729345,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 0.6262686970989328,
+            "distance": 17.68001481339341,
+            "climb": 0.18312454223631391,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.1571455023916806,
+            "current": 15.369542226864965,
+            "c_rate": 0.26499210735974077,
+            "reached_target": false
+        },
+        "section1_2": {
+            "energy": 0.7635810376613589,
+            "distance": 17.68001481339341,
+            "climb": 0.333568572998054,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.1571455023916806,
+            "current": 18.882134608850194,
+            "c_rate": 0.32555404498017576,
+            "reached_target": false
+        },
+        "section1_3": {
+            "energy": 0.934477323341828,
+            "distance": 17.68001481339341,
+            "climb": 0.5210342407226562,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.1571455023916806,
+            "current": 23.33336574523262,
+            "c_rate": 0.4022994094005624,
+            "reached_target": false
+        },
+        "section1_4": {
+            "energy": 0.6711081018796679,
+            "distance": 17.68001481339341,
+            "climb": 0.23052978515625,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.1571455023916806,
+            "current": 16.51051023075393,
+            "c_rate": 0.2846639694957574,
+            "reached_target": false
+        },
+        "section1_5": {
+            "energy": 0.3515931119659621,
+            "distance": 17.68001481339341,
+            "climb": -0.12051010131835938,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.1571455023916806,
+            "current": 8.502943147791946,
+            "c_rate": 0.14660246806537838,
+            "reached_target": false
+        },
+        "section1_6": {
+            "energy": 0.264701935442063,
+            "distance": 17.68001481339341,
+            "climb": -0.21498489379882812,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.1571455023916806,
+            "current": 6.372771670113515,
+            "c_rate": 0.10987537362264681,
+            "reached_target": false
+        },
+        "section1_7": {
+            "energy": 0.8924590590111667,
+            "distance": 17.68001481339341,
+            "climb": 0.47454071044921875,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.1571455023916806,
+            "current": 22.230506525921818,
+            "c_rate": 0.3832845952745141,
+            "reached_target": false
+        }
+    },
+    "path177": {
+        "section1": {
+            "energy": 1.9869876446450434,
+            "distance": 15.126138680391485,
+            "climb": 0.4003448486328125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.036616173586092,
+            "time": 5.402192385854102,
+            "current": 29.384730851985346,
+            "c_rate": 0.5066332905514714,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 0.4638700740006786,
+            "distance": 15.126138680391485,
+            "climb": 0.07558441162108664,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.701096192927051,
+            "current": 13.245560731328112,
+            "c_rate": 0.22837173674703642,
+            "reached_target": false
+        },
+        "section1_2": {
+            "energy": 0.792302700896732,
+            "distance": 15.126138680391485,
+            "climb": 0.43890380859375,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.701096192927051,
+            "current": 23.112353467546534,
+            "c_rate": 0.3984888528887333,
+            "reached_target": false
+        }
+    },
+    "path175": {
+        "section1": {
+            "energy": 2.0296455152558486,
+            "distance": 16.186913077048917,
+            "climb": 0.4359436035156321,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9686837709799245,
+            "time": 5.781040384660328,
+            "peak_current": 27.960182383514756,
+            "peak_c_rate": 0.48207211006059925,
+            "avg_current": 27.960182383514752,
+            "avg_c_rate": 0.48207211006059925,
+            "acceleration_phase": {
+                "distance": 16.186913077048914,
+                "time": 5.7810403846603275,
+                "energy": 2.0296455152558486,
+                "discharge_current": 27.960182383514756,
+                "c_rate": 0.48207211006059925
+            },
+            "constant_phase": {
+                "distance": 3.552713678800501e-15,
+                "time": 6.344131569286609e-16,
+                "energy": 1.7933534220324768e-16,
+                "discharge_current": 22.230506525921818,
+                "c_rate": 0.3832845952745141
+            },
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 1.0991049827649215,
+            "distance": 16.186913077048917,
+            "climb": 0.7454414367675781,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.8905201923301638,
+            "current": 30.450027898791596,
+            "c_rate": 0.5250004810136482,
+            "reached_target": false
+        },
+        "section1_2": {
+            "energy": 1.0247791461832076,
+            "distance": 16.186913077048917,
+            "climb": 0.6632881164550852,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.8905201923301638,
+            "current": 28.252786659311404,
+            "c_rate": 0.487117011367438,
+            "reached_target": false
+        },
+        "section2": {
+            "energy": 0.5885214184329076,
+            "distance": 14.764489181480501,
+            "climb": 0.224853515625,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.6365159252643755,
+            "current": 17.37003177081519,
+            "c_rate": 0.29948330639336534,
+            "reached_target": false
+        },
+        "section3": {
+            "energy": 1.144546337540819,
+            "distance": 19.651868818956967,
+            "climb": 0.6965141296386648,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.5092622890994587,
+            "current": 25.853798851775025,
+            "c_rate": 0.44575515261681076,
+            "reached_target": false
+        },
+        "section3_1": {
+            "energy": 1.0262455548168978,
+            "distance": 19.651868818956967,
+            "climb": 0.5653457641601491,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.5092622890994587,
+            "current": 23.038731811509443,
+            "c_rate": 0.3972195139915421,
+            "reached_target": false
+        },
+        "section3_2": {
+            "energy": 0.6618498542838256,
+            "distance": 19.651868818956967,
+            "climb": 0.1633453369140767,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.5092622890994587,
+            "current": 14.588444479482128,
+            "c_rate": 0.25152490481865736,
+            "reached_target": false
+        },
+        "section4": {
+            "energy": 0.45870361055177744,
+            "distance": 8.89175594556012,
+            "climb": 0.24967193603514914,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 1.5878135617071645,
+            "current": 22.744490097500822,
+            "c_rate": 0.3921463809913935,
+            "reached_target": false
+        }
+    },
+    "path593": {
+        "section1": {
+            "energy": 1.9644802555274825,
+            "distance": 5.688747728509729,
+            "climb": 0.49591827392577414,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 2.756318393487218,
+            "time": 2.0316956173249037,
+            "peak_current": 89.03311043613343,
+            "peak_c_rate": 1.535053628209197,
+            "avg_current": 89.03311043613343,
+            "avg_c_rate": 1.5350536282091969,
+            "acceleration_phase": {
+                "distance": 5.688747728509727,
+                "time": 2.0316956173249032,
+                "energy": 1.9644802555274823,
+                "discharge_current": 89.03311043613343,
+                "c_rate": 1.535053628209197
+            },
+            "constant_phase": {
+                "distance": 1.7763568394002505e-15,
+                "time": 3.1720657846433045e-16,
+                "energy": 1.8633272272929385e-16,
+                "discharge_current": 49.07339921423876,
+                "c_rate": 0.8460930899006683
+            },
+            "reached_target": true
+        },
+        "section2": {
+            "energy": 0.2467423238420042,
+            "distance": 5.570016176431349,
+            "climb": 0.11176681518555398,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 0.9946457457913125,
+            "current": 19.3884410097845,
+            "c_rate": 0.33428346568593964,
+            "reached_target": false
+        },
+        "section3": {
+            "energy": 0.11319782091867082,
+            "distance": 3.31430859851016,
+            "climb": 0.0292510986328125,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 0.5918408211625287,
+            "current": 14.801204860850525,
+            "c_rate": 0.25519318725604356,
+            "reached_target": false
+        },
+        "section4": {
+            "energy": 0.15324849273756863,
+            "distance": 5.807844163471178,
+            "climb": 0.002330780029296875,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 1.0371150291912818,
+            "current": 11.35073124790619,
+            "c_rate": 0.1957022628949343,
+            "reached_target": false
+        },
+        "section5": {
+            "energy": 0.15686835866324103,
+            "distance": 8.959603365138939,
+            "climb": -0.08404159545897727,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 1.5999291723462392,
+            "current": 7.46977469563749,
+            "c_rate": 0.12878921889030154,
+            "reached_target": false
+        }
+    },
+    "path327": {
+        "section1": {
+            "energy": 1.6635864516721115,
+            "distance": 11.49490578965756,
+            "climb": 0.09112930297850852,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.3640825150657554,
+            "time": 4.105323496306272,
+            "current": 32.60703745104678,
+            "c_rate": 0.5621903008801169,
+            "reached_target": true
+        },
+        "section2": {
+            "energy": 1.5837586524625216,
+            "distance": 14.05704593955721,
+            "climb": -0.029891967773444605,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.1154548450237127,
+            "time": 5.020373549841861,
+            "current": 24.95764762682864,
+            "c_rate": 0.43030426942808,
+            "reached_target": true
+        },
+        "section3": {
+            "energy": 2.369265983933895,
+            "distance": 15.985195852784885,
+            "climb": 0.8134384155273509,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.980907593776418,
+            "time": 5.708998518851745,
+            "current": 33.45750862258086,
+            "c_rate": 0.5768535969410493,
+            "reached_target": true
+        }
+    },
+    "path37": {
+        "section1": {
+            "energy": 1.6813771844837662,
+            "distance": 18.054524502175106,
+            "climb": 0.028003692626953125,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8684803633632645,
+            "time": 6.448044465062538,
+            "current": 20.426041768513628,
+            "c_rate": 0.35217313393989014,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 2.2993709026475218,
+            "distance": 18.054524502175106,
+            "climb": 0.7105140686035156,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8684803633632645,
+            "time": 6.448044465062538,
+            "current": 28.428712272982395,
+            "c_rate": 0.49015021160314476,
+            "reached_target": true
+        },
+        "section1_2": {
+            "energy": 1.644167964516782,
+            "distance": 18.054524502175106,
+            "climb": -0.011444091796875,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8684803633632645,
+            "time": 6.448044465062538,
+            "current": 19.953492450352286,
+            "c_rate": 0.34402573190262564,
+            "reached_target": true
+        },
+        "section1_3": {
+            "energy": 1.3436290188219977,
+            "distance": 18.054524502175106,
+            "climb": -0.343902587890625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8684803633632645,
+            "time": 6.448044465062538,
+            "current": 16.17327934064008,
+            "c_rate": 0.2788496438041393,
+            "reached_target": true
+        },
+        "section1_4": {
+            "energy": 1.432357208484995,
+            "distance": 18.054524502175106,
+            "climb": -0.246185302734375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8684803633632645,
+            "time": 6.448044465062538,
+            "current": 17.28263743995967,
+            "c_rate": 0.2979765075855116,
+            "reached_target": true
+        }
+    },
+    "path71": {
+        "section1": {
+            "energy": 1.8597159181316834,
+            "distance": 17.479556245691175,
+            "climb": 0.23052978515625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.8970479444445405,
+            "time": 6.24269865917542,
+            "current": 23.492476334122614,
+            "c_rate": 0.40504269541590715,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 0.6441044502397401,
+            "distance": 17.479556245691175,
+            "climb": 0.20717620849609375,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.12134932958771,
+            "current": 16.010628944318803,
+            "c_rate": 0.27604532662618625,
+            "reached_target": false
+        },
+        "section1_2": {
+            "energy": 0.41688577679407446,
+            "distance": 17.479556245691175,
+            "climb": -0.04198455810546875,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.12134932958771,
+            "current": 10.235209592416972,
+            "c_rate": 0.1764691309037409,
+            "reached_target": false
+        },
+        "section1_3": {
+            "energy": 1.3500979654044476,
+            "distance": 17.479556245691175,
+            "climb": 0.9879226684570312,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 3.12134932958771,
+            "current": 34.99102264250318,
+            "c_rate": 0.6032934938362617,
+            "reached_target": false
+        }
+    },
+    "path571": {
+        "section1": {
+            "energy": 1.5878814212388566,
+            "distance": 14.496401225401575,
+            "climb": -0.029205322265625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.0816477659658343,
+            "time": 5.177286151929135,
+            "current": 24.225242319541138,
+            "c_rate": 0.4176765917162265,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 1.199943499493206,
+            "distance": 14.496401225401575,
+            "climb": 0.9068069458007812,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.5886430759645673,
+            "current": 37.73159928171985,
+            "c_rate": 0.6505448152020664,
+            "reached_target": false
+        },
+        "section1_2": {
+            "energy": 0.8419900953485343,
+            "distance": 14.496401225401575,
+            "climb": 0.5110321044921875,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.5886430759645673,
+            "current": 25.779253873793344,
+            "c_rate": 0.4444698943757473,
+            "reached_target": false
+        }
+    },
+    "path574": {
+        "section1": {
+            "energy": 1.8742993396530687,
+            "distance": 11.782582088208034,
+            "climb": 0.319488525390625,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 1.3307779129069244,
+            "time": 4.208065031502869,
+            "peak_current": 36.12413698260447,
+            "peak_c_rate": 0.6228299479759392,
+            "avg_current": 36.12413698260447,
+            "avg_c_rate": 0.6228299479759392,
+            "acceleration_phase": {
+                "distance": 11.782582088208033,
+                "time": 4.208065031502869,
+                "energy": 1.8742993396530687,
+                "discharge_current": 36.12413698260447,
+                "c_rate": 0.6228299479759392
+            },
+            "constant_phase": {
+                "distance": 1.7763568394002505e-15,
+                "time": 3.1720657846433045e-16,
+                "energy": 8.99491286589286e-17,
+                "discharge_current": 22.30385977291288,
+                "c_rate": 0.3845493064295324
+            },
+            "reached_target": true
+        }
+    },
+    "path663": {
+        "section1": {
+            "energy": 1.8851034160713884,
+            "distance": 15.964913005666835,
+            "climb": 0.2778167724609375,
+            "initial_velocity": 0,
+            "final_velocity": 5.6,
+            "acceleration": 0.9821538015543395,
+            "time": 5.701754644881013,
+            "current": 26.22968497166049,
+            "c_rate": 0.45223594778724985,
+            "reached_target": true
+        },
+        "section1_1": {
+            "energy": 0.707218724358802,
+            "distance": 15.964913005666835,
+            "climb": 0.32175445556640625,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 2.8508773224405064,
+            "current": 19.3884410097845,
+            "c_rate": 0.33428346568593964,
+            "reached_target": false
+        },
+        "section2": {
+            "energy": 0.22711373987616626,
+            "distance": 7.330070947779515,
+            "climb": 0.0402984619140625,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 1.3089412406749135,
+            "current": 13.386544951815011,
+            "c_rate": 0.23080249916922432,
+            "reached_target": false
+        },
+        "section3": {
+            "energy": 0.13066654737803365,
+            "distance": 3.1287976577100625,
+            "climb": 0.0539093017578125,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 0.5587138674482255,
+            "current": 18.23284443205214,
+            "c_rate": 0.31435938675951963,
+            "reached_target": false
+        },
+        "section4": {
+            "energy": 0.08322261207240299,
+            "distance": 5.3327452082970295,
+            "climb": -0.0615692138671875,
+            "initial_velocity": 5.6,
+            "final_velocity": 5.6,
+            "acceleration": 0,
+            "time": 0.952275930053041,
+            "current": 6.646537789603428,
+            "c_rate": 0.1145954791310936,
+            "reached_target": false
+        }
+    },
+    "summary": {
+        "total_distance": 1491.8755688718174,
+        "total_consumption": 110.43698473784839,
+        "total_climb": -2.7180023193359375,
+        "wh_per_km": 74.0256004201227,
+        "wh_per_climb_m": 0
+    }
+}

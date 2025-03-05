@@ -153,7 +153,7 @@ def calculate_actual_acceleration(v_initial, v_final, distance, vehicle_data, st
         adjusted_v_final = np.sqrt(v_initial**2 + 2 * max_available_accel * distance)
         return max_available_accel, False, adjusted_v_final
 
-def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data, vehicle_data, static_data, max_motor_power, motor_efficiency):
+def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data, vehicle_data, static_data, max_motor_power, motor_efficiency, OCV, R_i, Q):
     """
     Calculate energy consumption for a segment considering acceleration phase.
     
@@ -167,9 +167,12 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
     static_data (dict): Static values
     max_motor_power (float): Maximum motor power in Watts
     motor_efficiency (float): Motor efficiency (0-1)
+    OCV (float): Open Circuit Voltage of the battery
+    R_i (float): Internal resistance of the battery
+    Q = capacity
     
     Returns:
-    dict: Energy consumption details
+    dict: Energy consumption details including discharge current
     """
     distance = segment_data["distance"]
     
@@ -192,7 +195,9 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
                 "acceleration": 0,
                 "time": float('inf'),  # Can't complete the segment
                 "energy_consumption": 0,  # No energy used if not moving
-                "reached_target": False
+                "reached_target": False,
+                "discharge_current": 0,   # No current if not moving
+                "c_rate": 0               # No C-rate if not moving
             }
         
         segment_data_copy["velocity"] = v_initial
@@ -201,13 +206,20 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
         time = distance / v_initial
         energy = batt_power * time / 3600  # Convert to Wh
         
+        # Calculate discharge current
+        current = discharge_current(OCV, R_i, batt_power)
+        # Calculate C-rate using the existing function
+        c_rate = find_crate(current, Q)
+        
         return {
             "initial_velocity": v_initial,
             "final_velocity": v_initial,
             "acceleration": 0,
             "time": time,
             "energy_consumption": energy,
-            "reached_target": False
+            "reached_target": False,
+            "discharge_current": current,
+            "c_rate": c_rate
         }
     
     # Calculate time needed for acceleration
@@ -237,13 +249,20 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
         batt_power_accel = battery_power_model(tract_power_accel, motor_efficiency)
         energy_accel = batt_power_accel * accel_time / 3600  # Convert to Wh
         
+        # Calculate discharge current during acceleration (peak power point)
+        current_accel = discharge_current(OCV, R_i, batt_power_accel)
+        # Calculate C-rate using the existing function
+        c_rate_accel = find_crate(current_accel, Q)
+        
         return {
             "initial_velocity": v_initial,
             "final_velocity": adjusted_v_final,
             "acceleration": accel,
             "time": accel_time,
             "energy_consumption": energy_accel,
-            "reached_target": adjusted_v_final >= v_target
+            "reached_target": adjusted_v_final >= v_target,
+            "discharge_current": current_accel,
+            "c_rate": c_rate_accel
         }
     else:
         # We reach the target/max velocity before the end of the segment
@@ -258,6 +277,10 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
         batt_power_accel = battery_power_model(tract_power_accel, motor_efficiency)
         energy_accel = batt_power_accel * accel_time / 3600  # Convert to Wh
         
+        # Calculate discharge current during acceleration phase
+        current_accel = discharge_current(OCV, R_i, batt_power_accel)
+        c_rate_accel = find_crate(current_accel, Q)
+        
         # Calculate energy for constant velocity phase
         constant_distance = distance - accel_distance
         constant_time = constant_distance / v_final if v_final > 0 else 0
@@ -271,6 +294,16 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
         batt_power_const = battery_power_model(tract_power_const, motor_efficiency)
         energy_const = batt_power_const * constant_time / 3600  # Convert to Wh
         
+        # Calculate discharge current during constant velocity phase
+        current_const = discharge_current(OCV, R_i, batt_power_const)
+        c_rate_const = find_crate(current_const, Q)
+        
+        # Calculate peak and average values
+        peak_current = max(current_accel, current_const)
+        peak_c_rate = max(c_rate_accel, c_rate_const)
+        avg_current = (current_accel * accel_time + current_const * constant_time) / (accel_time + constant_time)
+        avg_c_rate = (c_rate_accel * accel_time + c_rate_const * constant_time) / (accel_time + constant_time)
+        
         total_time = accel_time + constant_time
         total_energy = energy_accel + energy_const
         
@@ -281,23 +314,33 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
             "acceleration_phase": {
                 "distance": accel_distance,
                 "time": accel_time,
-                "energy": energy_accel
+                "energy": energy_accel,
+                "discharge_current": current_accel,
+                "c_rate": c_rate_accel
             },
             "constant_phase": {
                 "distance": constant_distance,
                 "time": constant_time,
-                "energy": energy_const
+                "energy": energy_const,
+                "discharge_current": current_const,
+                "c_rate": c_rate_const
             },
             "total_time": total_time,
             "total_energy": total_energy,
+            "peak_discharge_current": peak_current,
+            "peak_c_rate": peak_c_rate,
+            "avg_discharge_current": avg_current,
+            "avg_c_rate": avg_c_rate,
             "reached_target": will_reach_target
         }
 
 # Example usage:
-def process_route_segments(segments, vehicle_data, static_data, target_velocity, max_motor_power, motor_efficiency):
+def process_route_segments(segments, vehicle_data, static_data, target_velocity, max_motor_power, motor_efficiency, OCV, R_i, Q):
     """
-    Process a sequence of route segments and calculate energy consumption.
+    Process a sequence of route segments and calculate energy consumption and discharge current.
     """
+
+
     current_velocity = 0  # Start from standstill
     results = []
     
@@ -311,7 +354,7 @@ def process_route_segments(segments, vehicle_data, static_data, target_velocity,
         # Calculate energy consumption for this segment
         segment_result = calculate_segment_energy_with_acceleration(
             current_velocity, target_velocity, segment, 
-            vehicle_data, static_data, max_motor_power, motor_efficiency
+            vehicle_data, static_data, max_motor_power, motor_efficiency, OCV, R_i, Q
         )
         
         # Update current velocity for next segment

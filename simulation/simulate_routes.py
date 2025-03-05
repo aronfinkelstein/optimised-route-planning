@@ -100,7 +100,8 @@ def return_route_data(route_dict:dict, vehicle_data:dict, static_data:dict, moto
 
     return total_distance, total_consumption, total_climb
 
-def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data: dict, motor_eff: float, max_motor_power: float) -> tuple:
+def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data: dict, 
+                             motor_eff: float, max_motor_power: float, battery_data: dict) -> tuple:
     '''
     Analyses a route and returns consumption, distance, and climb data,
     incorporating acceleration models for more accurate energy estimation.
@@ -111,19 +112,28 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
     static_data (dict): Static environmental values
     motor_eff (float): Motor efficiency
     max_motor_power (float): Maximum motor power in Watts
+    battery_data (dict): Battery parameters including OCV, internal resistance, and capacity
     
     Returns:
-    tuple: (total_distance, total_consumption, total_climb)
+    tuple: (total_distance, total_consumption, total_climb, detailed_results)
+    where detailed_results contains additional data about each segment
     '''
+    OCV = battery_data["OCV"]
+    R_i = battery_data["R_internal"]
+    Q = battery_data["Capacity"]
+
     consumptions = []
     distances = []
     climbs = []
+    detailed_results = {}
     
     # Target velocity (constant across the route)
     target_velocity = vehicle_data["max_speed"]
     
     # Process each path in the route
     for path, pathdata in route_dict.items():
+        detailed_results[path] = {}
+        
         # Starting velocity for each path
         current_velocity = 0  # Always start a new path from zero
         
@@ -140,8 +150,11 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
         
         # Process each section in the path
         for i, section_data in enumerate(sections):
+            section_name = section_data["section_name"]
+            detailed_results[path][section_name] = {}
+            
             # Determine if this is a start from zero
-            if i == 0 or not pathdata["smooth"]:
+            if i == 0 or not pathdata.get("smooth", False):
                 start_from_zero = True
             else:
                 start_from_zero = False
@@ -153,13 +166,13 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
             # Process section with acceleration model
             segment_result = ec.calculate_segment_energy_with_acceleration(
                 current_velocity, target_velocity, section_data,
-                vehicle_data, static_data, max_motor_power, motor_eff
+                vehicle_data, static_data, max_motor_power, motor_eff, OCV, R_i, Q
             )
             
             # Update current velocity for next section
             current_velocity = segment_result["final_velocity"]
             
-            # Extract results
+            # Extract energy consumption - handle both return formats
             if "total_energy" in segment_result:
                 energy = segment_result["total_energy"]
             else:
@@ -168,28 +181,55 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
             # Append to results
             distances.append(section_data['distance'])
             consumptions.append(energy)
-            climbs.append(section_data['climb'])
+            climbs.append(section_data.get('climb', 0))
             
-            # Optional: Store detailed results in the original data structure
-            # route_dict[path][section]["energy_details"] = segment_result
+            # Store detailed results
+            detailed_results[path][section_name] = {
+                "energy": energy,
+                "distance": section_data['distance'],
+                "climb": section_data.get('climb', 0),
+                "initial_velocity": segment_result["initial_velocity"],
+                "final_velocity": segment_result["final_velocity"],
+                "acceleration": segment_result["acceleration"]
+            }
+            
+            # Additional data that may be available depending on return format
+            if "total_time" in segment_result:
+                detailed_results[path][section_name]["time"] = segment_result["total_time"]
+            elif "time" in segment_result:
+                detailed_results[path][section_name]["time"] = segment_result["time"]
+            
+            # Store discharge current and C-rate if available
+            if "peak_discharge_current" in segment_result:
+                detailed_results[path][section_name]["peak_current"] = segment_result["peak_discharge_current"]
+                detailed_results[path][section_name]["peak_c_rate"] = segment_result["peak_c_rate"]
+                detailed_results[path][section_name]["avg_current"] = segment_result["avg_discharge_current"]
+                detailed_results[path][section_name]["avg_c_rate"] = segment_result["avg_c_rate"]
+            elif "discharge_current" in segment_result:
+                detailed_results[path][section_name]["current"] = segment_result["discharge_current"]
+                detailed_results[path][section_name]["c_rate"] = segment_result["c_rate"]
+            
+            # Store phase information if available
+            if "acceleration_phase" in segment_result:
+                detailed_results[path][section_name]["acceleration_phase"] = segment_result["acceleration_phase"]
+                detailed_results[path][section_name]["constant_phase"] = segment_result["constant_phase"]
+            
+            # Store target velocity achievement
+            detailed_results[path][section_name]["reached_target"] = segment_result.get("reached_target", False)
     
+    # Calculate totals
     total_distance = sum(distances)
     total_consumption = sum(consumptions)
     total_climb = sum(climbs)
     
+    # Calculate additional summary metrics
+    detailed_results["summary"] = {
+        "total_distance": total_distance,
+        "total_consumption": total_consumption,
+        "total_climb": total_climb,
+        "wh_per_km": (total_consumption / total_distance * 1000) if total_distance > 0 else 0,
+        "wh_per_climb_m": (total_consumption / total_climb) if total_climb > 0 else 0
+    }
 
-
-    # for path, pathdata in route_dict.items():
-    #     print(f"\nPath: {path}")
-        
-    #     # Within section loop:
-    #     for i, section_data in enumerate(sections):
-    #         print(f"\n  Section: {section_data['section_name']}")
-    #         print(f"  Starting velocity: {current_velocity:.2f} m/s")
-    #         print(f"  Distance: {section_data['distance']:.1f}m, Climb: {section_data['climb']:.1f}m, Incline: {section_data.get('avg_incline_angle', 0):.2f}°")
-            
-    #         # After calculation:
-    #         print(f"  Final velocity: {segment_result['final_velocity']:.2f} m/s")
-    #         print(f"  Energy consumption: {energy:.2f} Wh")
-
-    return total_distance, total_consumption, total_climb
+    # Return both the basic metrics and detailed results
+    return total_distance, total_consumption, total_climb, detailed_results
