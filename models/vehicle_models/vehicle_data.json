@@ -5,6 +5,5 @@
   "roll_res": 0.007,
   "motor_eff": 0.6,
   "max_speed": 5.6,
-  "max_acceleration": 1,
-  "max_motor_power": 3000
+  "max_acceleration": 1
 }

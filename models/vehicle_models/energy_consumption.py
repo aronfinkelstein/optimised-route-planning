@@ -25,12 +25,33 @@ def battery_power_model(tract_power, motor_eff):
     P_batt = tract_power/motor_eff
     return P_batt
 
+# def discharge_current(OCV:float, R_i: float, P_batt: float)-> float:
+#     '''
+#     Find discharge currrent
+#     '''
+#     I_l = (OCV - (OCV**2 - 4*R_i*P_batt)**0.5) / (2*R_i)
+#     return I_l
+
 def discharge_current(OCV:float, R_i: float, P_batt: float)-> float:
     '''
     Find discharge currrent
     '''
+    # Check if requested power exceeds maximum theoretical power
+    P_max = OCV**2 / (4*R_i)
+    
+    if P_batt > P_max:
+        print(f"WARNING: Requested power {P_batt:.2f}W exceeds battery capability {P_max:.2f}W")
+        # Return the current at maximum power
+        return OCV / (2*R_i)
+    
+    
+    # Normal case - battery can supply the requested power
     I_l = (OCV - (OCV**2 - 4*R_i*P_batt)**0.5) / (2*R_i)
+
+    if I_l > 50:
+        print("exceeded max current draw")
     return I_l
+
 
 def find_crate(current:float, capacity : float)->float:
     '''
@@ -86,6 +107,7 @@ def calculate_max_available_acceleration(vehicle_data, static_data, road_data, m
     Returns:
     float: Maximum possible acceleration in m/s²
     """
+
     # Calculate forces at current speed without acceleration component
     avg_incline_angle = np.radians(road_data["avg_incline_angle"])
     
@@ -103,7 +125,8 @@ def calculate_max_available_acceleration(vehicle_data, static_data, road_data, m
     
     # Power needed to maintain current speed
     maintain_power = maintain_force * road_data["velocity"]
-    
+    if maintain_power > max_motor_power and road_data["velocity"] > 0:
+        print(f"WARNING: Vehicle can't move - Required power ({maintain_power:.2f}W) exceeds available power ({max_motor_power:.2f}W)")
     # Available power for acceleration
     available_power = max(0, max_motor_power - maintain_power)
     
@@ -175,7 +198,23 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
     dict: Energy consumption details including discharge current
     """
     distance = segment_data["distance"]
-    
+    if v_initial <= 0:
+        # Calculate forces to start moving
+        temp_road_data = segment_data.copy()
+        temp_road_data["velocity"] = 0.1  # Very small non-zero velocity
+        temp_road_data["acceleration"] = 0
+        
+        avg_incline_angle = np.radians(temp_road_data["avg_incline_angle"])
+        grav_force = vehicle_data["mass"] * static_data["grav_acc"] * np.sin(avg_incline_angle)
+        roll_res_force = vehicle_data["mass"] * static_data["grav_acc"] * np.cos(avg_incline_angle) * vehicle_data["roll_res"]
+        
+        # Initial force needed just to start moving
+        initial_force = grav_force + roll_res_force
+        initial_power = initial_force * 0.1  # Power at very low speed
+        
+        if initial_power > max_motor_power:
+            print(f"WARNING: Vehicle can't start moving - Required power ({initial_power:.2f}W) exceeds available power ({max_motor_power:.2f}W)")
+            # Return appropriate values indicating vehicle can't move
     # Calculate actual acceleration and final velocity
     accel, will_reach_target, v_final = calculate_actual_acceleration(
         v_initial, v_target, distance, vehicle_data, static_data, segment_data, max_motor_power

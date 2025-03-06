@@ -8,8 +8,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8866865845606703,
             "time": 6.315647600301353,
-            "current": 18.52862933519102,
-            "c_rate": 0.3194591264688107,
+            "current": 24.019374551879658,
+            "c_rate": 0.414127147446201,
             "reached_target": true
         },
         "section2": {
@@ -32,8 +32,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.471942462449741,
-            "current": 11.560495706065304,
-            "c_rate": 0.19931889148388454,
+            "current": 14.829776725441732,
+            "c_rate": 0.25568580561106435,
             "reached_target": false
         }
     },
@@ -46,8 +46,8 @@
             "final_velocity": 5.6,
             "acceleration": 2.5860055682716,
             "time": 2.165501911019802,
-            "current": 53.87262138178077,
-            "c_rate": 0.9288382996858753,
+            "current": 75.35532689527206,
+            "c_rate": 1.2992297740564147,
             "reached_target": true
         },
         "section2": {
@@ -58,8 +58,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.1478415205696335,
             "time": 4.878722279728055,
-            "current": 18.11604805233678,
-            "c_rate": 0.31234565607477205,
+            "current": 23.469257697226027,
+            "c_rate": 0.4046423740901039,
             "reached_target": true
         },
         "section3": {
@@ -70,16 +70,16 @@
             "final_velocity": 5.6,
             "acceleration": 3.530635063972368,
             "time": 1.5861169162296145,
-            "peak_current": 77.21829988884483,
-            "peak_c_rate": 1.3313499980835315,
-            "avg_current": 77.21829988884481,
-            "avg_c_rate": 1.3313499980835313,
+            "peak_current": 119.3043007596781,
+            "peak_c_rate": 2.0569707027530706,
+            "avg_current": 119.30430075967807,
+            "avg_c_rate": 2.05697070275307,
             "acceleration_phase": {
                 "distance": 4.441127365442919,
                 "time": 1.5861169162296143,
                 "energy": 1.370322101753681,
-                "discharge_current": 77.21829988884483,
-                "c_rate": 1.3313499980835315
+                "discharge_current": 119.3043007596781,
+                "c_rate": 2.0569707027530706
             },
             "constant_phase": {
                 "distance": 8.881784197001252e-16,
@@ -100,23 +100,23 @@
             "final_velocity": 5.6,
             "acceleration": 0.8326143859504155,
             "time": 6.725802597810862,
-            "peak_current": 18.57985186836565,
-            "peak_c_rate": 0.3203422735925112,
-            "avg_current": 18.57985186836565,
-            "avg_c_rate": 0.32034227359251116,
+            "peak_current": 24.0877280047226,
+            "peak_c_rate": 0.41530565525383795,
+            "avg_current": 24.087728004722596,
+            "avg_c_rate": 0.4153056552538379,
             "acceleration_phase": {
                 "distance": 18.832247273870408,
                 "time": 6.725802597810861,
                 "energy": 1.6016972034700108,
-                "discharge_current": 18.57985186836565,
-                "c_rate": 0.3203422735925112
+                "discharge_current": 24.0877280047226,
+                "c_rate": 0.41530565525383795
             },
             "constant_phase": {
                 "distance": 3.552713678800501e-15,
                 "time": 6.344131569286609e-16,
                 "energy": 8.078923911379799e-17,
-                "discharge_current": 9.748863365069198,
-                "c_rate": 0.16808385112188273
+                "discharge_current": 12.473703576969832,
+                "c_rate": 0.21506385477534193
             },
             "reached_target": true
         }
@@ -130,8 +130,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.2223971008318344,
             "time": 4.581162697612119,
-            "current": 28.232249173740094,
-            "c_rate": 0.4867629167886223,
+            "current": 37.20739451788608,
+            "c_rate": 0.6415068020325186,
             "reached_target": true
         },
         "section2": {
@@ -142,23 +142,23 @@
             "final_velocity": 5.6,
             "acceleration": 1.4143027433835174,
             "time": 3.9595482835611278,
-            "peak_current": 33.121326459736906,
-            "peak_c_rate": 0.5710573527540845,
-            "avg_current": 33.121326459736906,
-            "avg_c_rate": 0.5710573527540845,
+            "peak_current": 44.05896544912822,
+            "peak_c_rate": 0.7596373353297969,
+            "avg_current": 44.05896544912822,
+            "avg_c_rate": 0.7596373353297969,
             "acceleration_phase": {
                 "distance": 11.086735193971155,
                 "time": 3.9595482835611273,
                 "energy": 1.627947866878915,
-                "discharge_current": 33.121326459736906,
-                "c_rate": 0.5710573527540845
+                "discharge_current": 44.05896544912822,
+                "c_rate": 0.7596373353297969
             },
             "constant_phase": {
                 "distance": 1.7763568394002505e-15,
                 "time": 3.1720657846433045e-16,
                 "energy": 5.4475156942226285e-17,
-                "discharge_current": 13.245560731328112,
-                "c_rate": 0.22837173674703642
+                "discharge_current": 17.033021278482714,
+                "c_rate": 0.29367278066349506
             },
             "reached_target": true
         },
@@ -170,23 +170,23 @@
             "final_velocity": 5.6,
             "acceleration": 1.4143027433835174,
             "time": 3.9595482835611278,
-            "peak_current": 28.386335481439566,
-            "peak_c_rate": 0.48941957726619945,
-            "avg_current": 28.386335481439563,
-            "avg_c_rate": 0.4894195772661994,
+            "peak_current": 37.42102696972349,
+            "peak_c_rate": 0.6451901201676464,
+            "avg_current": 37.42102696972349,
+            "avg_c_rate": 0.6451901201676464,
             "acceleration_phase": {
                 "distance": 11.086735193971155,
                 "time": 3.9595482835611273,
                 "energy": 1.410001411853914,
-                "discharge_current": 28.386335481439566,
-                "c_rate": 0.48941957726619945
+                "discharge_current": 37.42102696972349,
+                "c_rate": 0.6451901201676464
             },
             "constant_phase": {
                 "distance": 1.7763568394002505e-15,
                 "time": 3.1720657846433045e-16,
                 "energy": 1.9554987096623064e-17,
-                "discharge_current": 4.668976506623714,
-                "c_rate": 0.08049959494178818
+                "discharge_current": 5.932918156341671,
+                "c_rate": 0.10229169235071847
             },
             "reached_target": true
         },
@@ -198,8 +198,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8806099331667736,
             "time": 6.35922874485615,
-            "current": 17.249790462864993,
-            "c_rate": 0.297410180394224,
+            "current": 22.3167991454196,
+            "c_rate": 0.38477239905895866,
             "reached_target": true
         },
         "section3_1": {
@@ -210,8 +210,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8806099331667736,
             "time": 6.35922874485615,
-            "current": 6.504494634815465,
-            "c_rate": 0.1121464592209563,
+            "current": 8.285523345708867,
+            "c_rate": 0.1428538507880839,
             "reached_target": true
         },
         "section3_2": {
@@ -222,8 +222,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8806099331667736,
             "time": 6.35922874485615,
-            "current": 7.222945482466336,
-            "c_rate": 0.12453354280114373,
+            "current": 9.209632143029154,
+            "c_rate": 0.15878676108670955,
             "reached_target": true
         },
         "section4": {
@@ -234,8 +234,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9471856739518851,
             "time": 5.912251582770947,
-            "current": 15.281850192351207,
-            "c_rate": 0.2634801757301932,
+            "current": 19.711283835443467,
+            "c_rate": 0.3398497213007494,
             "reached_target": true
         },
         "section4_1": {
@@ -246,8 +246,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9471856739518851,
             "time": 5.912251582770947,
-            "current": 15.530816878023757,
-            "c_rate": 0.26777270479351306,
+            "current": 20.039963016456994,
+            "c_rate": 0.34551660373201715,
             "reached_target": true
         },
         "section4_2": {
@@ -258,8 +258,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9471856739518851,
             "time": 5.912251582770947,
-            "current": 16.065272340576975,
-            "c_rate": 0.2769874541478789,
+            "current": 20.74645571835145,
+            "c_rate": 0.3576975123853698,
             "reached_target": true
         },
         "section4_3": {
@@ -270,8 +270,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9471856739518851,
             "time": 5.912251582770947,
-            "current": 16.887312183643175,
-            "c_rate": 0.29116055489039955,
+            "current": 21.835582049474276,
+            "c_rate": 0.3764755525771427,
             "reached_target": true
         },
         "section5": {
@@ -282,8 +282,8 @@
             "final_velocity": 5.6,
             "acceleration": 3.361845220266941,
             "time": 1.66575188121104,
-            "current": 75.28631238587344,
-            "c_rate": 1.2980398687219559,
+            "current": 114.96268336724678,
+            "c_rate": 1.982115230469772,
             "reached_target": true
         },
         "section6": {
@@ -294,8 +294,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.9257079418856071,
             "time": 2.9080214492528986,
-            "current": 31.420682874580308,
-            "c_rate": 0.541735911630695,
+            "current": 41.65805875442242,
+            "c_rate": 0.718242392317628,
             "reached_target": true
         },
         "section7": {
@@ -306,16 +306,16 @@
             "final_velocity": 5.6,
             "acceleration": 1.0161077923817698,
             "time": 5.511226310816421,
-            "peak_current": 10.406669814770773,
-            "peak_c_rate": 0.17942534163397883,
-            "avg_current": 10.406669814770773,
-            "avg_c_rate": 0.17942534163397883,
+            "peak_current": 13.327712230967919,
+            "peak_c_rate": 0.22978814191323998,
+            "avg_current": 13.327712230967917,
+            "avg_c_rate": 0.22978814191323998,
             "acceleration_phase": {
                 "distance": 15.431433670285978,
                 "time": 5.511226310816421,
                 "energy": 0.7481340813482321,
-                "discharge_current": 10.406669814770773,
-                "c_rate": 0.17942534163397883
+                "discharge_current": 13.327712230967919,
+                "c_rate": 0.22978814191323998
             },
             "constant_phase": {
                 "distance": 1.7763568394002505e-15,
@@ -334,16 +334,16 @@
             "final_velocity": 5.6,
             "acceleration": 1.0161077923817698,
             "time": 5.511226310816421,
-            "peak_current": 12.536775997362106,
-            "peak_c_rate": 0.21615131029934667,
-            "avg_current": 12.536775997362106,
-            "avg_c_rate": 0.21615131029934667,
+            "peak_current": 16.104864146019793,
+            "peak_c_rate": 0.27767007148309986,
+            "avg_current": 16.104864146019793,
+            "avg_c_rate": 0.27767007148309986,
             "acceleration_phase": {
                 "distance": 15.431433670285978,
                 "time": 5.511226310816421,
                 "energy": 0.89717891900515,
-                "discharge_current": 12.536775997362106,
-                "c_rate": 0.21615131029934667
+                "discharge_current": 16.104864146019793,
+                "c_rate": 0.27767007148309986
             },
             "constant_phase": {
                 "distance": 1.7763568394002505e-15,
@@ -364,8 +364,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 23.014925714907868,
-            "c_rate": 0.39680906405013566,
+            "current": 30.054626629880445,
+            "c_rate": 0.5181832177565594,
             "reached_target": true
         },
         "section1_1": {
@@ -376,8 +376,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 13.74969841229369,
-            "c_rate": 0.23706376572920154,
+            "current": 17.694460424140566,
+            "c_rate": 0.3050769038644925,
             "reached_target": true
         },
         "section1_2": {
@@ -388,8 +388,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 6.7650461545254,
-            "c_rate": 0.11663872680216207,
+            "current": 8.620443006107585,
+            "c_rate": 0.1486283276915101,
             "reached_target": true
         },
         "section1_3": {
@@ -400,8 +400,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 12.13152020935972,
-            "c_rate": 0.20916414154068483,
+            "current": 15.575104752511244,
+            "c_rate": 0.26853628883640074,
             "reached_target": true
         },
         "section1_4": {
@@ -412,8 +412,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 17.129603030535705,
-            "c_rate": 0.29533798328509836,
+            "current": 22.157175174729034,
+            "c_rate": 0.3820202616332592,
             "reached_target": true
         },
         "section1_5": {
@@ -424,8 +424,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 20.926314901102216,
-            "c_rate": 0.3607985327776244,
+            "current": 27.23243719091009,
+            "c_rate": 0.46952477915362223,
             "reached_target": true
         },
         "section1_6": {
@@ -436,8 +436,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 19.79860170753927,
-            "c_rate": 0.3413552018541253,
+            "current": 25.717755646098723,
+            "c_rate": 0.4434095801051504,
             "reached_target": true
         },
         "section1_7": {
@@ -448,8 +448,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8560377379668183,
             "time": 6.541767671715738,
-            "current": 9.69167782143952,
-            "c_rate": 0.16709789347309517,
+            "current": 12.399540358974264,
+            "c_rate": 0.21378517860300456,
             "reached_target": true
         }
     },
@@ -462,23 +462,23 @@
             "final_velocity": 5.6,
             "acceleration": 0.8731965640869761,
             "time": 6.413218088936735,
-            "peak_current": 14.634973229198174,
-            "peak_c_rate": 0.2523271246413478,
-            "avg_current": 14.634973229198172,
-            "avg_c_rate": 0.25232712464134777,
+            "peak_current": 18.85855180172097,
+            "peak_c_rate": 0.3251474448572581,
+            "avg_current": 18.858551801720967,
+            "avg_c_rate": 0.3251474448572581,
             "acceleration_phase": {
                 "distance": 17.957010649022852,
                 "time": 6.413218088936734,
                 "energy": 1.213274814271224,
-                "discharge_current": 14.634973229198174,
-                "c_rate": 0.2523271246413478
+                "discharge_current": 18.85855180172097,
+                "c_rate": 0.3251474448572581
             },
             "constant_phase": {
                 "distance": 3.552713678800501e-15,
                 "time": 6.344131569286609e-16,
                 "energy": 5.3194397899102595e-18,
-                "discharge_current": 0.6296875151417325,
-                "c_rate": 0.010856681295547111
+                "discharge_current": 0.7960188074820351,
+                "c_rate": 0.013724462197966122
             },
             "reached_target": true
         },
@@ -490,8 +490,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.206609044468367,
-            "current": 17.226550559356753,
-            "c_rate": 0.29700949240270264,
+            "current": 22.28592851020867,
+            "c_rate": 0.3842401467277357,
             "reached_target": false
         },
         "section1_2": {
@@ -526,8 +526,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.1210028440576223,
-            "current": 15.298422171789099,
-            "c_rate": 0.26376589951360513,
+            "current": 19.733153319597996,
+            "c_rate": 0.3402267813723792,
             "reached_target": false
         },
         "section3": {
@@ -538,8 +538,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.1932177419093435,
-            "current": 8.089123097459208,
-            "c_rate": 0.13946763961136566,
+            "current": 10.326254489685027,
+            "c_rate": 0.1780388705118108,
             "reached_target": false
         },
         "section3_1": {
@@ -550,8 +550,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.1932177419093435,
-            "current": 18.52118600024145,
-            "c_rate": 0.3193307931076112,
+            "current": 24.009442886832737,
+            "c_rate": 0.41395591184194375,
             "reached_target": false
         }
     },
@@ -564,8 +564,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9592155084079375,
             "time": 5.838104107902328,
-            "current": 20.2439342557701,
-            "c_rate": 0.3490333492374155,
+            "current": 26.315155156678287,
+            "c_rate": 0.45370957166686704,
             "reached_target": true
         },
         "section1_1": {
@@ -576,8 +576,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9592155084079375,
             "time": 5.838104107902328,
-            "current": 24.354486969326956,
-            "c_rate": 0.4199049477470165,
+            "current": 31.876670632502258,
+            "c_rate": 0.549597769525901,
             "reached_target": true
         },
         "section1_2": {
@@ -588,8 +588,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9592155084079375,
             "time": 5.838104107902328,
-            "current": 22.767214945229775,
-            "c_rate": 0.39253818871085816,
+            "current": 29.718738142439136,
+            "c_rate": 0.5123920369386058,
             "reached_target": true
         },
         "section1_3": {
@@ -600,8 +600,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9592155084079375,
             "time": 5.838104107902328,
-            "current": 20.42580900079532,
-            "c_rate": 0.3521691207033676,
+            "current": 26.559413385306208,
+            "c_rate": 0.45792092043631394,
             "reached_target": true
         }
     },
@@ -614,8 +614,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.30924544298249,
             "time": 4.277272859734441,
-            "current": 20.916503763835443,
-            "c_rate": 0.3606293752385421,
+            "current": 27.219232330531362,
+            "c_rate": 0.46929710914709244,
             "reached_target": true
         },
         "section2": {
@@ -626,22 +626,22 @@
             "final_velocity": 5.6,
             "acceleration": 1.4454306931904035,
             "time": 3.8742777681297818,
-            "current": 32.16497016685764,
-            "c_rate": 0.554568451152718,
+            "current": 42.70641688877557,
+            "c_rate": 0.736317532565096,
             "reached_target": true
         }
     },
     "path500": {
         "section1": {
-            "energy": 1.0755308035335105,
+            "energy": 1.2964650765869827,
             "distance": 2.1744606193154423,
             "climb": 0.01996994018553977,
             "initial_velocity": 0,
-            "final_velocity": 4.730018903483309,
-            "acceleration": 5.144512305390215,
-            "time": 0.9194299911630853,
-            "current": 115.54952611008667,
-            "c_rate": 1.9922332087945978,
+            "final_velocity": 5.206754901577738,
+            "acceleration": 6.2337980196759295,
+            "time": 0.8352460065506608,
+            "current": 190.0,
+            "c_rate": 3.2758620689655173,
             "reached_target": false
         },
         "section2": {
@@ -652,8 +652,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.2429987384097891,
             "time": 4.505233856604128,
-            "current": 28.082609606790854,
-            "c_rate": 0.48418292425501475,
+            "current": 37.00006421221019,
+            "c_rate": 0.6379321415898309,
             "reached_target": true
         },
         "section3": {
@@ -664,8 +664,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.1653454286116836,
             "time": 4.805442113993165,
-            "current": 24.628623580588638,
-            "c_rate": 0.4246314410446317,
+            "current": 32.250737622035835,
+            "c_rate": 0.5560472003799282,
             "reached_target": true
         },
         "section4": {
@@ -676,8 +676,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9006555709494712,
             "time": 6.2176931788657885,
-            "current": 18.606517364357238,
-            "c_rate": 0.32080202352340065,
+            "current": 24.12331642591038,
+            "c_rate": 0.4159192487225928,
             "reached_target": true
         },
         "section5": {
@@ -688,8 +688,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.3415173575982182,
             "time": 4.174377594357738,
-            "current": 33.37189920526317,
-            "c_rate": 0.5753775725045374,
+            "current": 44.41438244785331,
+            "c_rate": 0.7657652146181606,
             "reached_target": true
         },
         "section5_1": {
@@ -700,8 +700,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.3415173575982182,
             "time": 4.174377594357738,
-            "current": 39.05392477780133,
-            "c_rate": 0.673343530651747,
+            "current": 52.59794343895166,
+            "c_rate": 0.9068610937750287,
             "reached_target": true
         },
         "section6": {
@@ -712,8 +712,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.0956394382909747,
             "time": 5.111170522243266,
-            "current": 27.703227810599884,
-            "c_rate": 0.4776418588034463,
+            "current": 36.47502000639097,
+            "c_rate": 0.6288796552826029,
             "reached_target": true
         }
     },
@@ -726,8 +726,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.3763405800792874,
             "time": 4.068760364296894,
-            "current": 32.18985086358593,
-            "c_rate": 0.5549974286825161,
+            "current": 42.741526274042,
+            "c_rate": 0.7369228667938276,
             "reached_target": true
         },
         "section2": {
@@ -738,8 +738,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.2923290252216,
-            "current": 7.951347135708922,
-            "c_rate": 0.1370921919949814,
+            "current": 10.148457620924844,
+            "c_rate": 0.1749734072573249,
             "reached_target": false
         },
         "section3": {
@@ -750,8 +750,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.2441625187118532,
-            "current": 5.4852464645041366,
-            "c_rate": 0.09457321490524373,
+            "current": 6.977679979150153,
+            "c_rate": 0.12030482722672678,
             "reached_target": false
         },
         "section4": {
@@ -762,8 +762,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.5128264665939692,
-            "current": 17.441806648522267,
-            "c_rate": 0.3007208042848667,
+            "current": 22.5719574626946,
+            "c_rate": 0.3891716803912862,
             "reached_target": false
         },
         "section5": {
@@ -774,8 +774,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.402427130023913,
-            "current": 22.670990783382194,
-            "c_rate": 0.39087915143762403,
+            "current": 29.588347533364185,
+            "c_rate": 0.5101439229890377,
             "reached_target": false
         },
         "section5_1": {
@@ -786,8 +786,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.402427130023913,
-            "current": 15.725477526957583,
-            "c_rate": 0.27112892287857904,
+            "current": 20.29713782463414,
+            "c_rate": 0.3499506521488645,
             "reached_target": false
         },
         "section6": {
@@ -810,8 +810,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.6110826302097867,
-            "current": 4.872776935434757,
-            "c_rate": 0.0840133954385303,
+            "current": 6.193550096701408,
+            "c_rate": 0.10678534649485186,
             "reached_target": false
         }
     },
@@ -824,8 +824,8 @@
             "final_velocity": 5.6,
             "acceleration": 4.541870341949052,
             "time": 1.232972229144893,
-            "current": 114.69409168955866,
-            "c_rate": 1.9774843394751493,
+            "current": 190.0,
+            "c_rate": 3.2758620689655173,
             "reached_target": true
         }
     },
@@ -838,8 +838,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.886877084974029,
             "time": 6.314291004783361,
-            "current": 21.58423683852302,
-            "c_rate": 0.37214201445729345,
+            "current": 28.119038805020686,
+            "c_rate": 0.484811013879667,
             "reached_target": true
         },
         "section1_1": {
@@ -850,8 +850,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.1571455023916806,
-            "current": 15.369542226864965,
-            "c_rate": 0.26499210735974077,
+            "current": 19.827021653353576,
+            "c_rate": 0.34184520091988924,
             "reached_target": false
         },
         "section1_2": {
@@ -862,8 +862,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.1571455023916806,
-            "current": 18.882134608850194,
-            "c_rate": 0.32555404498017576,
+            "current": 24.491358548447266,
+            "c_rate": 0.4222648025594356,
             "reached_target": false
         },
         "section1_3": {
@@ -874,8 +874,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.1571455023916806,
-            "current": 23.33336574523262,
-            "c_rate": 0.4022994094005624,
+            "current": 30.486895838338288,
+            "c_rate": 0.5256361351437636,
             "reached_target": false
         },
         "section1_4": {
@@ -886,8 +886,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.1571455023916806,
-            "current": 16.51051023075393,
-            "c_rate": 0.2846639694957574,
+            "current": 21.335978829751774,
+            "c_rate": 0.36786170396123746,
             "reached_target": false
         },
         "section1_5": {
@@ -898,8 +898,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.1571455023916806,
-            "current": 8.502943147791946,
-            "c_rate": 0.14660246806537838,
+            "current": 10.860704112038952,
+            "c_rate": 0.1872535191730854,
             "reached_target": false
         },
         "section1_6": {
@@ -910,8 +910,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.1571455023916806,
-            "current": 6.372771670113515,
-            "c_rate": 0.10987537362264681,
+            "current": 8.116295900086463,
+            "c_rate": 0.1399361362083873,
             "reached_target": false
         },
         "section1_7": {
@@ -922,8 +922,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.1571455023916806,
-            "current": 22.230506525921818,
-            "c_rate": 0.3832845952745141,
+            "current": 28.992073834992276,
+            "c_rate": 0.49986334198262544,
             "reached_target": false
         }
     },
@@ -936,8 +936,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.036616173586092,
             "time": 5.402192385854102,
-            "current": 29.384730851985346,
-            "c_rate": 0.5066332905514714,
+            "current": 38.8087581958179,
+            "c_rate": 0.66911652061755,
             "reached_target": true
         },
         "section1_1": {
@@ -948,8 +948,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.701096192927051,
-            "current": 13.245560731328112,
-            "c_rate": 0.22837173674703642,
+            "current": 17.033021278482714,
+            "c_rate": 0.29367278066349506,
             "reached_target": false
         },
         "section1_2": {
@@ -960,8 +960,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.701096192927051,
-            "current": 23.112353467546534,
-            "c_rate": 0.3984888528887333,
+            "current": 30.186824015081672,
+            "c_rate": 0.5204624830186495,
             "reached_target": false
         }
     },
@@ -974,23 +974,23 @@
             "final_velocity": 5.6,
             "acceleration": 0.9686837709799245,
             "time": 5.781040384660328,
-            "peak_current": 27.960182383514756,
-            "peak_c_rate": 0.48207211006059925,
-            "avg_current": 27.960182383514752,
-            "avg_c_rate": 0.48207211006059925,
+            "peak_current": 36.830537459869866,
+            "peak_c_rate": 0.6350092665494804,
+            "avg_current": 36.830537459869866,
+            "avg_c_rate": 0.6350092665494804,
             "acceleration_phase": {
                 "distance": 16.186913077048914,
                 "time": 5.7810403846603275,
                 "energy": 2.0296455152558486,
-                "discharge_current": 27.960182383514756,
-                "c_rate": 0.48207211006059925
+                "discharge_current": 36.830537459869866,
+                "c_rate": 0.6350092665494804
             },
             "constant_phase": {
                 "distance": 3.552713678800501e-15,
                 "time": 6.344131569286609e-16,
                 "energy": 1.7933534220324768e-16,
-                "discharge_current": 22.230506525921818,
-                "c_rate": 0.3832845952745141
+                "discharge_current": 28.992073834992276,
+                "c_rate": 0.49986334198262544
             },
             "reached_target": true
         },
@@ -1002,8 +1002,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.8905201923301638,
-            "current": 30.450027898791596,
-            "c_rate": 0.5250004810136482,
+            "current": 40.29632333300153,
+            "c_rate": 0.6947641953965781,
             "reached_target": false
         },
         "section1_2": {
@@ -1014,8 +1014,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.8905201923301638,
-            "current": 28.252786659311404,
-            "c_rate": 0.487117011367438,
+            "current": 37.23586036786285,
+            "c_rate": 0.6419975925493595,
             "reached_target": false
         },
         "section2": {
@@ -1026,8 +1026,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.6365159252643755,
-            "current": 17.37003177081519,
-            "c_rate": 0.29948330639336534,
+            "current": 22.476560584114544,
+            "c_rate": 0.38752690662266454,
             "reached_target": false
         },
         "section3": {
@@ -1038,8 +1038,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.5092622890994587,
-            "current": 25.853798851775025,
-            "c_rate": 0.44575515261681076,
+            "current": 33.927595436553766,
+            "c_rate": 0.5849585420095477,
             "reached_target": false
         },
         "section3_1": {
@@ -1050,8 +1050,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.5092622890994587,
-            "current": 23.038731811509443,
-            "c_rate": 0.3972195139915421,
+            "current": 30.086923943168014,
+            "c_rate": 0.5187400679856554,
             "reached_target": false
         },
         "section3_2": {
@@ -1062,8 +1062,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.5092622890994587,
-            "current": 14.588444479482128,
-            "c_rate": 0.25152490481865736,
+            "current": 18.797285762814155,
+            "c_rate": 0.32409113384162336,
             "reached_target": false
         },
         "section4": {
@@ -1074,8 +1074,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 1.5878135617071645,
-            "current": 22.744490097500822,
-            "c_rate": 0.3921463809913935,
+            "current": 29.687939995161585,
+            "c_rate": 0.5118610343993377,
             "reached_target": false
         }
     },
@@ -1088,23 +1088,23 @@
             "final_velocity": 5.6,
             "acceleration": 2.756318393487218,
             "time": 2.0316956173249037,
-            "peak_current": 89.03311043613343,
-            "peak_c_rate": 1.535053628209197,
-            "avg_current": 89.03311043613343,
-            "avg_c_rate": 1.5350536282091969,
+            "peak_current": 154.06948727629,
+            "peak_c_rate": 2.656370470280862,
+            "avg_current": 154.06948727628998,
+            "avg_c_rate": 2.6563704702808617,
             "acceleration_phase": {
                 "distance": 5.688747728509727,
                 "time": 2.0316956173249032,
                 "energy": 1.9644802555274823,
-                "discharge_current": 89.03311043613343,
-                "c_rate": 1.535053628209197
+                "discharge_current": 154.06948727629,
+                "c_rate": 2.656370470280862
             },
             "constant_phase": {
                 "distance": 1.7763568394002505e-15,
                 "time": 3.1720657846433045e-16,
                 "energy": 1.8633272272929385e-16,
-                "discharge_current": 49.07339921423876,
-                "c_rate": 0.8460930899006683
+                "discharge_current": 67.71767548985078,
+                "c_rate": 1.1675461291353582
             },
             "reached_target": true
         },
@@ -1116,8 +1116,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 0.9946457457913125,
-            "current": 19.3884410097845,
-            "c_rate": 0.33428346568593964,
+            "current": 25.168389075112998,
+            "c_rate": 0.433937742674362,
             "reached_target": false
         },
         "section3": {
@@ -1128,8 +1128,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 0.5918408211625287,
-            "current": 14.801204860850525,
-            "c_rate": 0.25519318725604356,
+            "current": 19.077510747928166,
+            "c_rate": 0.3289225991022098,
             "reached_target": false
         },
         "section4": {
@@ -1140,8 +1140,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 1.0371150291912818,
-            "current": 11.35073124790619,
-            "c_rate": 0.1957022628949343,
+            "current": 14.55631074083282,
+            "c_rate": 0.2509708748419452,
             "reached_target": false
         },
         "section5": {
@@ -1152,8 +1152,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 1.5999291723462392,
-            "current": 7.46977469563749,
-            "c_rate": 0.12878921889030154,
+            "current": 9.52754869482824,
+            "c_rate": 0.1642680809453145,
             "reached_target": false
         }
     },
@@ -1166,8 +1166,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.3640825150657554,
             "time": 4.105323496306272,
-            "current": 32.60703745104678,
-            "c_rate": 0.5621903008801169,
+            "current": 43.33084538720655,
+            "c_rate": 0.7470835411587337,
             "reached_target": true
         },
         "section2": {
@@ -1178,8 +1178,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.1154548450237127,
             "time": 5.020373549841861,
-            "current": 24.95764762682864,
-            "c_rate": 0.43030426942808,
+            "current": 32.70024375674575,
+            "c_rate": 0.5637973061507888,
             "reached_target": true
         },
         "section3": {
@@ -1190,8 +1190,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.980907593776418,
             "time": 5.708998518851745,
-            "current": 33.45750862258086,
-            "c_rate": 0.5768535969410493,
+            "current": 44.5359125268671,
+            "c_rate": 0.7678605608080534,
             "reached_target": true
         }
     },
@@ -1204,8 +1204,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8684803633632645,
             "time": 6.448044465062538,
-            "current": 20.426041768513628,
-            "c_rate": 0.35217313393989014,
+            "current": 26.559726097138103,
+            "c_rate": 0.4579263120196225,
             "reached_target": true
         },
         "section1_1": {
@@ -1216,8 +1216,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8684803633632645,
             "time": 6.448044465062538,
-            "current": 28.428712272982395,
-            "c_rate": 0.49015021160314476,
+            "current": 37.47980530281088,
+            "c_rate": 0.6462035397036359,
             "reached_target": true
         },
         "section1_2": {
@@ -1228,8 +1228,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8684803633632645,
             "time": 6.448044465062538,
-            "current": 19.953492450352286,
-            "c_rate": 0.34402573190262564,
+            "current": 25.925427061969266,
+            "c_rate": 0.4469901217580908,
             "reached_target": true
         },
         "section1_3": {
@@ -1240,8 +1240,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8684803633632645,
             "time": 6.448044465062538,
-            "current": 16.17327934064008,
-            "c_rate": 0.2788496438041393,
+            "current": 20.88938270728491,
+            "c_rate": 0.3601617708152571,
             "reached_target": true
         },
         "section1_4": {
@@ -1252,8 +1252,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8684803633632645,
             "time": 6.448044465062538,
-            "current": 17.28263743995967,
-            "c_rate": 0.2979765075855116,
+            "current": 22.360435500146743,
+            "c_rate": 0.38552475000253006,
             "reached_target": true
         }
     },
@@ -1266,8 +1266,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.8970479444445405,
             "time": 6.24269865917542,
-            "current": 23.492476334122614,
-            "c_rate": 0.40504269541590715,
+            "current": 30.703082880017885,
+            "c_rate": 0.5293634979313429,
             "reached_target": true
         },
         "section1_1": {
@@ -1278,8 +1278,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.12134932958771,
-            "current": 16.010628944318803,
-            "c_rate": 0.27604532662618625,
+            "current": 20.674165155108035,
+            "c_rate": 0.35645112336393164,
             "reached_target": false
         },
         "section1_2": {
@@ -1290,8 +1290,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.12134932958771,
-            "current": 10.235209592416972,
-            "c_rate": 0.1764691309037409,
+            "current": 13.104949444478358,
+            "c_rate": 0.2259474042151441,
             "reached_target": false
         },
         "section1_3": {
@@ -1302,8 +1302,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 3.12134932958771,
-            "current": 34.99102264250318,
-            "c_rate": 0.6032934938362617,
+            "current": 46.7216666862479,
+            "c_rate": 0.8055459773491017,
             "reached_target": false
         }
     },
@@ -1316,8 +1316,8 @@
             "final_velocity": 5.6,
             "acceleration": 1.0816477659658343,
             "time": 5.177286151929135,
-            "current": 24.225242319541138,
-            "c_rate": 0.4176765917162265,
+            "current": 31.70045466881234,
+            "c_rate": 0.5465595632553852,
             "reached_target": true
         },
         "section1_1": {
@@ -1328,8 +1328,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.5886430759645673,
-            "current": 37.73159928171985,
-            "c_rate": 0.6505448152020664,
+            "current": 50.67123079158863,
+            "c_rate": 0.8736419101998039,
             "reached_target": false
         },
         "section1_2": {
@@ -1340,8 +1340,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.5886430759645673,
-            "current": 25.779253873793344,
-            "c_rate": 0.4444698943757473,
+            "current": 33.82532833116412,
+            "c_rate": 0.5831953160545539,
             "reached_target": false
         }
     },
@@ -1354,23 +1354,23 @@
             "final_velocity": 5.6,
             "acceleration": 1.3307779129069244,
             "time": 4.208065031502869,
-            "peak_current": 36.12413698260447,
-            "peak_c_rate": 0.6228299479759392,
-            "avg_current": 36.12413698260447,
-            "avg_c_rate": 0.6228299479759392,
+            "peak_current": 48.347723205421694,
+            "peak_c_rate": 0.8335814345762361,
+            "avg_current": 48.347723205421694,
+            "avg_c_rate": 0.8335814345762361,
             "acceleration_phase": {
                 "distance": 11.782582088208033,
                 "time": 4.208065031502869,
                 "energy": 1.8742993396530687,
-                "discharge_current": 36.12413698260447,
-                "c_rate": 0.6228299479759392
+                "discharge_current": 48.347723205421694,
+                "c_rate": 0.8335814345762361
             },
             "constant_phase": {
                 "distance": 1.7763568394002505e-15,
                 "time": 3.1720657846433045e-16,
                 "energy": 8.99491286589286e-17,
-                "discharge_current": 22.30385977291288,
-                "c_rate": 0.3845493064295324
+                "discharge_current": 29.091300826302202,
+                "c_rate": 0.5015741521776241
             },
             "reached_target": true
         }
@@ -1384,8 +1384,8 @@
             "final_velocity": 5.6,
             "acceleration": 0.9821538015543395,
             "time": 5.701754644881013,
-            "current": 26.22968497166049,
-            "c_rate": 0.45223594778724985,
+            "current": 34.443747835982116,
+            "c_rate": 0.5938577213100364,
             "reached_target": true
         },
         "section1_1": {
@@ -1396,8 +1396,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 2.8508773224405064,
-            "current": 19.3884410097845,
-            "c_rate": 0.33428346568593964,
+            "current": 25.168389075112998,
+            "c_rate": 0.433937742674362,
             "reached_target": false
         },
         "section2": {
@@ -1408,8 +1408,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 1.3089412406749135,
-            "current": 13.386544951815011,
-            "c_rate": 0.23080249916922432,
+            "current": 17.21788863173437,
+            "c_rate": 0.2968601488230064,
             "reached_target": false
         },
         "section3": {
@@ -1420,8 +1420,8 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 0.5587138674482255,
-            "current": 18.23284443205214,
-            "c_rate": 0.31435938675951963,
+            "current": 23.624907847663756,
+            "c_rate": 0.40732599737351305,
             "reached_target": false
         },
         "section4": {
@@ -1432,16 +1432,16 @@
             "final_velocity": 5.6,
             "acceleration": 0,
             "time": 0.952275930053041,
-            "current": 6.646537789603428,
-            "c_rate": 0.1145954791310936,
+            "current": 8.468079045091947,
+            "c_rate": 0.14600136284641288,
             "reached_target": false
         }
     },
     "summary": {
         "total_distance": 1491.8755688718174,
-        "total_consumption": 110.43698473784839,
+        "total_consumption": 110.65791901090186,
         "total_climb": -2.7180023193359375,
-        "wh_per_km": 74.0256004201227,
+        "wh_per_km": 74.1736920422816,
         "wh_per_climb_m": 0
     }
 }

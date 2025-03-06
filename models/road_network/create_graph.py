@@ -84,7 +84,7 @@ def plot_graph_with_routes(G, route1=None, route2=None):
     return fig, ax
 
 def dijkstra(G, start_node:int, target_node:int) -> list:
-    weighted_path = nx.shortest_path(G, source=start_node, target=target_node, weight='weight')
+    weighted_path = nx.dijkstra_path(G, source=start_node, target=target_node, weight='weight')
     return weighted_path
 
 def find_ways(route:list, road_df)-> list:

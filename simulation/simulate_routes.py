@@ -69,39 +69,9 @@ def find_route(map_data:dict, road_df:dict, graph, start_node: int, end_node: in
     
     return route_dict
 
-def return_route_data(route_dict:dict, vehicle_data:dict, static_data:dict, motor_eff:float)->float:
-    '''
-    Analyses a route and returns consumption, distance, and climb data. 
-    '''
-    consumptions = []
-    distances = []
-    climbs = []
-    for path, pathdata in route_dict.items():
-        pprint(route_dict)
-        for section, data in pathdata.items():
-            if "section" in section: 
-                data["velocity"] = vehicle_data["max_speed"]
-                if pathdata["smooth"]:
-                    data["acceleration"] = 0
-                else:
-                    data["acceleration"] = vehicle_data["max_acceleration"]
-                tract_power = ec.physical_model(vehicle_data, static_data, data)
-                batt_power = ec.battery_power_model(tract_power, motor_eff)
-
-                energy = ec.get_edge_consumption(batt_power, data)
-
-                distances.append(data['distance'])
-                consumptions.append(energy)
-                climbs.append(data['climb'])
-
-    total_distance = sum(distances)
-    total_consumption = sum(consumptions)
-    total_climb = sum(climbs)
-
-    return total_distance, total_consumption, total_climb
 
 def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data: dict, 
-                             motor_eff: float, max_motor_power: float, battery_data: dict) -> tuple:
+                             motor_eff: float, battery_data: dict) -> tuple:
     '''
     Analyses a route and returns consumption, distance, and climb data,
     incorporating acceleration models for more accurate energy estimation.
@@ -121,6 +91,11 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
     OCV = battery_data["OCV"]
     R_i = battery_data["R_internal"]
     Q = battery_data["Capacity"]
+
+    max_motor_power = OCV**2 / (4*R_i)
+    print("=======maxpower=======")
+    print(max_motor_power)
+
 
     consumptions = []
     distances = []
