@@ -5,21 +5,21 @@ import osmnx as ox
 from shapely import wkt
 import geopandas as gpd
 
-def create_osmnx_compatible_graph(csv_path):
+def create_bidirectional_graph(csv_path):
     '''
-    Initialise a graph based on route data
+    Create a graph with bidirectional edges to ensure connectivity
     '''
     # Load the edge data from CSV
     edge_df = pd.read_csv(csv_path)
     
-    # Create a MultiDiGraph (OSMnx requires this type)
+    # Create a MultiDiGraph
     G = nx.MultiDiGraph()
     
     # Convert geometry strings to Shapely geometries
     if 'geometry' in edge_df.columns:
         edge_df['geometry'] = edge_df['geometry'].apply(lambda x: wkt.loads(x) if isinstance(x, str) else None)
     
-    # First pass: collect all nodes and their coordinates
+    # Add nodes with coordinates
     nodes = {}
     for _, row in edge_df.iterrows():
         source = int(row['u'])
@@ -51,6 +51,95 @@ def create_osmnx_compatible_graph(csv_path):
         
         # Add edge with all attributes
         G.add_edge(source, target, key=key, **edge_attrs)
+        
+        # Add the reverse edge to make it bidirectional
+        # You might want to modify this part depending on your needs
+        G.add_edge(target, source, key=key, **edge_attrs)
+    
+    # Set graph crs attribute for osmnx plotting
+    G.graph['crs'] = 'EPSG:4326'
+    
+    return G
+
+def create_osmnx_compatible_graph(csv_path, debug=False):
+    '''
+    Initialise a graph based on route data
+    '''
+    # Load the edge data from CSV
+    edge_df = pd.read_csv(csv_path)
+    
+    if debug:
+        print(f"Loaded {len(edge_df)} edges from CSV")
+        print(f"CSV columns: {edge_df.columns.tolist()}")
+        # Print a sample edge
+        if len(edge_df) > 0:
+            print("Sample edge data:")
+            print(edge_df.iloc[0])
+    
+    # Create a MultiDiGraph (OSMnx requires this type)
+    G = nx.MultiDiGraph()
+    
+    # Convert geometry strings to Shapely geometries
+    if 'geometry' in edge_df.columns:
+        edge_df['geometry'] = edge_df['geometry'].apply(lambda x: wkt.loads(x) if isinstance(x, str) else None)
+        
+        if debug:
+            null_geom_count = edge_df['geometry'].isna().sum()
+            print(f"Edges with null geometry: {null_geom_count} ({null_geom_count/len(edge_df)*100:.1f}%)")
+    
+    # First pass: collect all nodes and their coordinates
+    nodes = {}
+    for _, row in edge_df.iterrows():
+        source = int(row['u'])
+        target = int(row['v'])
+        
+        # Extract coordinates from geometry if available
+        if 'geometry' in edge_df.columns and row['geometry'] is not None:
+            geom = row['geometry']
+            # Add source node
+            if source not in nodes:
+                nodes[source] = {'x': geom.coords[0][0], 'y': geom.coords[0][1]}
+            
+            # Add target node
+            if target not in nodes:
+                nodes[target] = {'x': geom.coords[-1][0], 'y': geom.coords[-1][1]}
+    
+    if debug:
+        print(f"Collected coordinates for {len(nodes)} unique nodes")
+    
+    # Add nodes to the graph
+    for node_id, attrs in nodes.items():
+        G.add_node(node_id, **attrs)
+    
+    # Add edges to the graph with key and geometry
+    edge_count = 0
+    weight_attrs = []
+    for _, row in edge_df.iterrows():
+        source = int(row['u'])
+        target = int(row['v'])
+        key = 0 if 'key' not in row else int(row['key'])
+        
+        # Create edge attributes dictionary
+        edge_attrs = {k: v for k, v in row.items() if k not in ['u', 'v', 'key']}
+        
+        # Add edge with all attributes
+        G.add_edge(source, target, key=key, **edge_attrs)
+        edge_count += 1
+        
+        # Track potential weight attributes
+        if edge_count == 1:
+            weight_attrs = [k for k, v in edge_attrs.items() if isinstance(v, (int, float))]
+    
+    if debug:
+        print(f"Added {edge_count} edges to the graph")
+        print(f"Potential weight attributes: {weight_attrs}")
+        
+        # Check bidirectionality
+        bidirectional_count = 0
+        for u, v in G.edges():
+            if G.has_edge(v, u):
+                bidirectional_count += 1
+        print(f"Bidirectional edges: {bidirectional_count} ({bidirectional_count/G.number_of_edges()*100:.1f}%)")
     
     # Set graph crs attribute for osmnx plotting
     G.graph['crs'] = 'EPSG:4326'

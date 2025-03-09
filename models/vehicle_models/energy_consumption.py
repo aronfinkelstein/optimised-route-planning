@@ -25,14 +25,7 @@ def battery_power_model(tract_power, motor_eff):
     P_batt = tract_power/motor_eff
     return P_batt
 
-# def discharge_current(OCV:float, R_i: float, P_batt: float)-> float:
-#     '''
-#     Find discharge currrent
-#     '''
-#     I_l = (OCV - (OCV**2 - 4*R_i*P_batt)**0.5) / (2*R_i)
-#     return I_l
-
-def discharge_current(OCV:float, R_i: float, P_batt: float)-> float:
+def discharge_current(OCV:float, R_i: float, P_batt: float, debug = False)-> float:
     '''
     Find discharge currrent
     '''
@@ -40,7 +33,8 @@ def discharge_current(OCV:float, R_i: float, P_batt: float)-> float:
     P_max = OCV**2 / (4*R_i)
     
     if P_batt > P_max:
-        print(f"WARNING: Requested power {P_batt:.2f}W exceeds battery capability {P_max:.2f}W")
+        if debug:
+            print(f"WARNING: Requested power {P_batt:.2f}W exceeds battery capability {P_max:.2f}W")
         # Return the current at maximum power
         return OCV / (2*R_i)
     
@@ -49,7 +43,8 @@ def discharge_current(OCV:float, R_i: float, P_batt: float)-> float:
     I_l = (OCV - (OCV**2 - 4*R_i*P_batt)**0.5) / (2*R_i)
 
     if I_l > 50:
-        print("exceeded max current draw")
+        if debug:
+            print("exceeded max current draw")
     return I_l
 
 
@@ -94,7 +89,7 @@ def calculate_required_acceleration(v_initial, v_final, distance):
     """
     return (v_final**2 - v_initial**2) / (2 * distance)
 
-def calculate_max_available_acceleration(vehicle_data, static_data, road_data, max_motor_power):
+def calculate_max_available_acceleration(vehicle_data, static_data, road_data, max_motor_power, debug=False):
     """
     Calculate the maximum possible acceleration given power constraints and hill grade.
     
@@ -103,6 +98,7 @@ def calculate_max_available_acceleration(vehicle_data, static_data, road_data, m
     static_data (dict): Static values like gravity, air density
     road_data (dict): Road segment data including incline, velocity
     max_motor_power (float): Maximum power available from the motor in Watts
+    debug (bool): Whether to print debug statements
     
     Returns:
     float: Maximum possible acceleration in m/s²
@@ -126,7 +122,8 @@ def calculate_max_available_acceleration(vehicle_data, static_data, road_data, m
     # Power needed to maintain current speed
     maintain_power = maintain_force * road_data["velocity"]
     if maintain_power > max_motor_power and road_data["velocity"] > 0:
-        print(f"WARNING: Vehicle can't move - Required power ({maintain_power:.2f}W) exceeds available power ({max_motor_power:.2f}W)")
+        if debug:
+            print(f"WARNING: Vehicle can't move - Required power ({maintain_power:.2f}W) exceeds available power ({max_motor_power:.2f}W)")
     # Available power for acceleration
     available_power = max(0, max_motor_power - maintain_power)
     
@@ -175,8 +172,8 @@ def calculate_actual_acceleration(v_initial, v_final, distance, vehicle_data, st
         # Calculate what speed we can reach
         adjusted_v_final = np.sqrt(v_initial**2 + 2 * max_available_accel * distance)
         return max_available_accel, False, adjusted_v_final
-
-def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data, vehicle_data, static_data, max_motor_power, motor_efficiency, OCV, R_i, Q):
+    
+def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data, vehicle_data, static_data, max_motor_power, motor_efficiency, OCV, R_i, Q, debug=False):
     """
     Calculate energy consumption for a segment considering acceleration phase.
     
@@ -198,6 +195,8 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
     dict: Energy consumption details including discharge current
     """
     distance = segment_data["distance"]
+    
+    """========== SCENARIO: STARTING FROM REST =========="""
     if v_initial <= 0:
         # Calculate forces to start moving
         temp_road_data = segment_data.copy()
@@ -213,13 +212,17 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
         initial_power = initial_force * 0.1  # Power at very low speed
         
         if initial_power > max_motor_power:
-            print(f"WARNING: Vehicle can't start moving - Required power ({initial_power:.2f}W) exceeds available power ({max_motor_power:.2f}W)")
+            if debug:
+                print(f"WARNING: Vehicle can't start moving - Required power ({initial_power:.2f}W) exceeds available power ({max_motor_power:.2f}W)")
             # Return appropriate values indicating vehicle can't move
+    
+    """========== CALCULATE ACTUAL ACCELERATION =========="""
     # Calculate actual acceleration and final velocity
     accel, will_reach_target, v_final = calculate_actual_acceleration(
         v_initial, v_target, distance, vehicle_data, static_data, segment_data, max_motor_power
     )
     
+    """========== SCENARIO: NEGATIVE OR ZERO ACCELERATION =========="""
     # Handle negative or zero acceleration (e.g., very steep hill)
     if accel <= 0:
         # If we can't accelerate (very steep hill), use constant speed model
@@ -239,6 +242,7 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
                 "c_rate": 0               # No C-rate if not moving
             }
         
+        """---------- CALCULATION: CONSTANT VELOCITY WITH NO ACCELERATION ----------"""
         segment_data_copy["velocity"] = v_initial
         tract_power = physical_model(vehicle_data, static_data, segment_data_copy)
         batt_power = battery_power_model(tract_power, motor_efficiency)
@@ -261,14 +265,17 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
             "c_rate": c_rate
         }
     
+    """========== PREPARE FOR ACCELERATION CALCULATIONS =========="""
     # Calculate time needed for acceleration
     accel_time = (v_final - v_initial) / accel
     
     # Calculate distance covered during acceleration
     accel_distance = v_initial * accel_time + 0.5 * accel * accel_time**2
     
+    """========== SCENARIO: STILL ACCELERATING AT END OF SEGMENT =========="""
     # Check if we use the entire segment for acceleration
     if accel_distance >= distance:
+        """---------- CALCULATION: PARTIAL ACCELERATION LIMITED BY SEGMENT DISTANCE ----------"""
         # We're still accelerating at the end of the segment
         # Recalculate time and final velocity for the given distance
         # v_final² = v_initial² + 2*a*d
@@ -303,7 +310,11 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
             "discharge_current": current_accel,
             "c_rate": c_rate_accel
         }
+    
+        """========== SCENARIO: REACHING TARGET VELOCITY BEFORE END OF SEGMENT =========="""
     else:
+    
+        """---------- CALCULATION: ACCELERATION PHASE ----------"""
         # We reach the target/max velocity before the end of the segment
         # Calculate energy for acceleration phase
         avg_velocity_accel = (v_initial + v_final) / 2
@@ -320,6 +331,7 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
         current_accel = discharge_current(OCV, R_i, batt_power_accel)
         c_rate_accel = find_crate(current_accel, Q)
         
+        """---------- CALCULATION: CONSTANT VELOCITY PHASE ----------"""
         # Calculate energy for constant velocity phase
         constant_distance = distance - accel_distance
         constant_time = constant_distance / v_final if v_final > 0 else 0
@@ -337,6 +349,7 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
         current_const = discharge_current(OCV, R_i, batt_power_const)
         c_rate_const = find_crate(current_const, Q)
         
+        """---------- CALCULATION: COMBINED RESULTS ----------"""
         # Calculate peak and average values
         peak_current = max(current_accel, current_const)
         peak_c_rate = max(c_rate_accel, c_rate_const)
@@ -372,7 +385,6 @@ def calculate_segment_energy_with_acceleration(v_initial, v_target, segment_data
             "avg_c_rate": avg_c_rate,
             "reached_target": will_reach_target
         }
-
 # Example usage:
 def process_route_segments(segments, vehicle_data, static_data, target_velocity, max_motor_power, motor_efficiency, OCV, R_i, Q):
     """

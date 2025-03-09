@@ -11,6 +11,7 @@ def find_random_route(map_data:dict, road_df:dict, graph, plot = False, weights_
     '''
     Takes in a overall map, road and graph, simulates a random route and returns data for that route.
     '''
+
     G = wi.add_weights_to_graph(graph, weights_type)
     nodes = road_df["u"].to_list()
     random_values = random.sample(nodes, 2)
@@ -28,47 +29,47 @@ def find_random_route(map_data:dict, road_df:dict, graph, plot = False, weights_
 
     return route_dict
 
-def find_route(map_data:dict, road_df:dict, graph, start_node: int, end_node: int, plot = False, weights_type = 'default'):
+def find_route(map_data:dict, road_df:dict, graph, start_node: int, end_node: int, weights_dict, plot = False, weights_type= 'default', debug = False):
     '''
     Takes in a overall map, road and graph, simulates a specific route and returns data for that route.
     '''
-
-    G = wi.add_weights_to_graph(graph, weights_type)
-
+    G = wi.add_weights_to_graph(graph, map_data, weights_dict, weights_type)
+    
     route = cg.dijkstra(G, start_node, end_node)
-    print("---Route---")
-    print(route)
-
+    
     route_dict = {}
     missing_segments = []
     
     for i in range(len(route)-1):
         current_node = route[i]
-        next_node = route[i + 1]        
+        next_node = route[i + 1]
+        
         path = cg.find_path_with_nodes(map_data, current_node, next_node)
         
         if not path:  # If no path found between these nodes
             missing_segments.append((current_node, next_node))
-            print(f"❌ No path found between nodes {current_node} and {next_node}")
+            if debug:
+                print(f"❌ No path found between nodes {current_node} and {next_node}")
         else:
             # Optionally print the first few characters of each path key
-            path_keys = list(path.keys())
-            # if path_keys:
-            #     print(f"  First few path keys: {path_keys[:3]}")
-        
-        route_dict.update(path)
-
-    if missing_segments:
-        print(f"Missing {len(missing_segments)} route segments out of {len(route)-1} total segments")
-        print(f"Missing segments: {missing_segments}")
-    else:
-        print(f"All {len(route)-1} route segments were found successfully")
-        
+            if debug:
+                path_keys = list(path.keys())
+                # if path_keys:
+                #     print(f"  First few path keys: {path_keys[:3]}")
+            
+            route_dict.update(path)
+    
+    if debug:
+        if missing_segments:
+            print(f"Missing {len(missing_segments)} route segments out of {len(route)-1} total segments")
+            print(f"Missing segments: {missing_segments}")
+        else:
+            print(f"All {len(route)-1} route segments were found successfully")
+    
     if plot:
         fig, ax = cg.plot_graph_with_routes(graph, route)
     
     return route_dict
-
 
 def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data: dict, 
                              motor_eff: float, battery_data: dict) -> tuple:
@@ -81,36 +82,46 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
     vehicle_data (dict): Vehicle characteristics
     static_data (dict): Static environmental values
     motor_eff (float): Motor efficiency
-    max_motor_power (float): Maximum motor power in Watts
     battery_data (dict): Battery parameters including OCV, internal resistance, and capacity
     
     Returns:
-    tuple: (total_distance, total_consumption, total_climb, detailed_results)
-    where detailed_results contains additional data about each segment
+    tuple: (total_distance, total_consumption, total_climb, detailed_results, 
+           current_list, climb_list, distance_list)
+    where detailed_results contains additional data about each segment, and
+    current_list, climb_list, and distance_list are lists of all discharge currents,
+    climbs, and distances respectively
     '''
     OCV = battery_data["OCV"]
     R_i = battery_data["R_internal"]
     Q = battery_data["Capacity"]
 
     max_motor_power = OCV**2 / (4*R_i)
-    print("=======maxpower=======")
-    print(max_motor_power)
+    # print("=======maxpower=======")
+    # print(max_motor_power)
 
 
     consumptions = []
     distances = []
     climbs = []
+    current_list = []  # New list to store all discharge currents
     detailed_results = {}
     
     # Target velocity (constant across the route)
     target_velocity = vehicle_data["max_speed"]
     
+    # Initialize current_velocity for the entire route
+    current_velocity = 0  # Always start the first path from zero
+    
     # Process each path in the route
-    for path, pathdata in route_dict.items():
+    for path_index, (path, pathdata) in enumerate(route_dict.items()):
         detailed_results[path] = {}
         
-        # Starting velocity for each path
-        current_velocity = 0  # Always start a new path from zero
+        # Check if this path is smooth (if not specified, assume it's not smooth)
+        is_smooth_path = pathdata.get("smooth", False)
+        
+        # Reset velocity at the start of a non-smooth path (except the first path which always starts at 0)
+        if path_index > 0 and not is_smooth_path:
+            current_velocity = 0
         
         # Get all sections for this path in the correct order
         sections = []
@@ -121,23 +132,11 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
                 section_data["section_name"] = section
                 sections.append(section_data)
         
-        # Sort sections if needed (assuming they're already in order)
-        
         # Process each section in the path
         for i, section_data in enumerate(sections):
             section_name = section_data["section_name"]
             detailed_results[path][section_name] = {}
             
-            # Determine if this is a start from zero
-            if i == 0 or not pathdata.get("smooth", False):
-                start_from_zero = True
-            else:
-                start_from_zero = False
-            
-            # Reset velocity if starting from zero
-            if start_from_zero:
-                current_velocity = 0
-                
             # Process section with acceleration model
             segment_result = ec.calculate_segment_energy_with_acceleration(
                 current_velocity, target_velocity, section_data,
@@ -157,6 +156,17 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
             distances.append(section_data['distance'])
             consumptions.append(energy)
             climbs.append(section_data.get('climb', 0))
+            
+            # Collect discharge current data
+            if "peak_discharge_current" in segment_result:
+                current_list.append(segment_result["peak_discharge_current"])
+            elif "avg_discharge_current" in segment_result:
+                current_list.append(segment_result["avg_discharge_current"])
+            elif "discharge_current" in segment_result:
+                current_list.append(segment_result["discharge_current"])
+            else:
+                # If no current data available, append None or 0
+                current_list.append(None)
             
             # Store detailed results
             detailed_results[path][section_name] = {
@@ -206,5 +216,10 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
         "wh_per_climb_m": (total_consumption / total_climb) if total_climb > 0 else 0
     }
 
-    # Return both the basic metrics and detailed results
-    return total_distance, total_consumption, total_climb, detailed_results
+    # Add the lists to the summary for easier access
+    detailed_results["summary"]["current_list"] = current_list
+    detailed_results["summary"]["climb_list"] = climbs
+    detailed_results["summary"]["distance_list"] = distances
+
+    # Return both the basic metrics, detailed results, and the new lists
+    return total_distance, total_consumption, total_climb, detailed_results, current_list, climbs, distances
