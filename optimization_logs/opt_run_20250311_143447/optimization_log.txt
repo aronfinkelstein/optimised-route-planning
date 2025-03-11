@@ -1,0 +1,40 @@
+Optimization run started at 2025-03-11 14:34:47.613322
+Parameters: n_calls=30, n_initial_points=10, n_jobs=7, num_routes=None
+Starting with pre-optimized weights: {'incline_weight': 2.2845804889825976, 'max_incline_weight': 0.889801834962223, 'distance_weight': 5.296244459829336, 'zero_start_weight': 15.005629167085328}
+
+Evaluation 1/30 - {'incline_weight': 2.2845804889825976, 'max_incline_weight': 0.889801834962223, 'distance_weight': 5.296244459829336, 'zero_start_weight': 15.005629167085328} - Value: 334378.3416643088 - Time: 50.40s
+Evaluation 2/30 - {'incline_weight': 4.003060635615142, 'max_incline_weight': 1.5491348399426943, 'distance_weight': 6.8209331618101, 'zero_start_weight': 17.946012462974196} - Value: 336104.22189880087 - Time: 55.74s
+Evaluation 3/30 - {'incline_weight': 2.2845804889825976, 'max_incline_weight': 0.889801834962223, 'distance_weight': 5.105966165763114, 'zero_start_weight': 13.34177602771059} - Value: 332658.5913877202 - Time: 77.91s
+Evaluation 4/30 - {'incline_weight': 0.8000474078175099, 'max_incline_weight': 5.242018936295938, 'distance_weight': 2.950030105685218, 'zero_start_weight': 20.13576097234985} - Value: 338214.42003683804 - Time: 92.97s
+Evaluation 5/30 - {'incline_weight': 4.698908274177177, 'max_incline_weight': 0.10615225014401321, 'distance_weight': 7.958317217307041, 'zero_start_weight': 18.307003048732806} - Value: 337484.67880393326 - Time: 90.25s
+Evaluation 6/30 - {'incline_weight': 3.097100486392577, 'max_incline_weight': 0.15582381123576752, 'distance_weight': 2.7715495098180805, 'zero_start_weight': 16.684894115942104} - Value: 345582.0433829819 - Time: 82.89s
+Evaluation 7/30 - {'incline_weight': 2.0593187614047523, 'max_incline_weight': 0.468658739387562, 'distance_weight': 7.8595427447001835, 'zero_start_weight': 11.57565788668901} - Value: 336118.901215674 - Time: 82.06s
+Evaluation 8/30 - {'incline_weight': 0.543971529210822, 'max_incline_weight': 4.985249473731391, 'distance_weight': 4.695012058879968, 'zero_start_weight': 24.70658769969163} - Value: 337705.9119672168 - Time: 94.23s
+Evaluation 9/30 - {'incline_weight': 2.3871381769151023, 'max_incline_weight': 6.893529213216934, 'distance_weight': 6.289045022504077, 'zero_start_weight': 15.385283525229092} - Value: 335043.6529034161 - Time: 85.91s
+Evaluation 10/30 - {'incline_weight': 0.164998309683346, 'max_incline_weight': 7.5433938699103384, 'distance_weight': 5.662771921153194, 'zero_start_weight': 14.246518591046076} - Value: 337932.31221929606 - Time: 79.96s
+Evaluation 11/30 - {'incline_weight': 0.17823463587904959, 'max_incline_weight': 1.9240612224149776, 'distance_weight': 3.9380610635637376, 'zero_start_weight': 19.458003060732793} - Value: 339475.37999225484 - Time: 76.89s
+Evaluation 12/30 - {'incline_weight': 1.4620741813367732, 'max_incline_weight': 1.98436667604382, 'distance_weight': 2.8215923126062874, 'zero_start_weight': 15.45149786070635} - Value: 340055.0644260008 - Time: 75.34s
+Evaluation 13/30 - {'incline_weight': 3.4255531042033884, 'max_incline_weight': 8.0, 'distance_weight': 5.319141650044472, 'zero_start_weight': 7.502814583542664} - Value: 335215.4887712201 - Time: 79.22s
+Evaluation 14/30 - {'incline_weight': 0.1, 'max_incline_weight': 8.0, 'distance_weight': 8.0, 'zero_start_weight': 25.0} - Value: 338313.2377959043 - Time: 75.32s
+Evaluation 15/30 - {'incline_weight': 5.0, 'max_incline_weight': 0.1, 'distance_weight': 5.624760742563721, 'zero_start_weight': 25.0} - Value: 336349.9907242878 - Time: 81.57s
+Evaluation 16/30 - {'incline_weight': 2.3297969741541147, 'max_incline_weight': 8.0, 'distance_weight': 4.85734324191741, 'zero_start_weight': 25.0} - Value: 337295.3563332446 - Time: 79.14s
+Evaluation 17/30 - {'incline_weight': 2.1828146859085047, 'max_incline_weight': 3.8116302444076067, 'distance_weight': 5.324467887027907, 'zero_start_weight': 7.502814583542664} - Value: 332216.78611697926 - Time: 73.04s
+Evaluation 18/30 - {'incline_weight': 2.114342056687352, 'max_incline_weight': 0.1, 'distance_weight': 5.315943430151187, 'zero_start_weight': 7.502814583542664} - Value: 331369.47657540895 - Time: 79.77s
+Evaluation 19/30 - {'incline_weight': 1.841540675180195, 'max_incline_weight': 0.1, 'distance_weight': 5.242541414361251, 'zero_start_weight': 7.502814583542664} - Value: 330340.32038452476 - Time: 77.61s
+Evaluation 20/30 - {'incline_weight': 1.8098973314558602, 'max_incline_weight': 0.1, 'distance_weight': 5.231766456575663, 'zero_start_weight': 7.502814583542664} - Value: 330040.02909069194 - Time: 81.39s
+Evaluation 21/30 - {'incline_weight': 1.6814624534032492, 'max_incline_weight': 0.1, 'distance_weight': 5.170268310255739, 'zero_start_weight': 7.502814583542664} - Value: 330745.4257497197 - Time: 78.28s
+Evaluation 22/30 - {'incline_weight': 1.5830437375049853, 'max_incline_weight': 0.1, 'distance_weight': 5.453809449863035, 'zero_start_weight': 7.502814583542664} - Value: 329855.15804093576 - Time: 81.97s
+Evaluation 23/30 - {'incline_weight': 1.4078986004885734, 'max_incline_weight': 0.1, 'distance_weight': 5.510534832391929, 'zero_start_weight': 7.804908685260982} - Value: 329469.68169585004 - Time: 77.95s
+Evaluation 24/30 - {'incline_weight': 1.2180137659901547, 'max_incline_weight': 0.1, 'distance_weight': 5.596200132389823, 'zero_start_weight': 7.757836833989526} - Value: 330036.9207606854 - Time: 98.81s
+Evaluation 25/30 - {'incline_weight': 1.5317955653732762, 'max_incline_weight': 0.1, 'distance_weight': 5.538617227188418, 'zero_start_weight': 8.963803558702757} - Value: 331363.1895528152 - Time: 76.49s
+Evaluation 26/30 - {'incline_weight': 1.0267866140694786, 'max_incline_weight': 0.1, 'distance_weight': 5.359793751531379, 'zero_start_weight': 7.502814583542664} - Value: 329721.9843011296 - Time: 77.90s
+Evaluation 27/30 - {'incline_weight': 1.047280076046376, 'max_incline_weight': 0.1, 'distance_weight': 5.612744281724366, 'zero_start_weight': 7.502814583542664} - Value: 329777.02305620245 - Time: 72.13s
+Evaluation 28/30 - {'incline_weight': 0.9913526437824584, 'max_incline_weight': 0.1, 'distance_weight': 5.220549679206265, 'zero_start_weight': 7.502814583542664} - Value: 330322.50667977973 - Time: 69.60s
+Evaluation 29/30 - {'incline_weight': 1.287327389629412, 'max_incline_weight': 0.1, 'distance_weight': 5.785043543777283, 'zero_start_weight': 7.502814583542664} - Value: 330146.5871630717 - Time: 69.57s
+Evaluation 30/30 - {'incline_weight': 0.1, 'max_incline_weight': 0.1, 'distance_weight': 6.033896859128443, 'zero_start_weight': 7.502814583542664} - Value: 328673.70115575136 - Time: 82.77s
+
+Optimization completed at 2025-03-11 15:14:08.946369
+Total time: 39.4 minutes
+Best weights: {'incline_weight': 0.1, 'max_incline_weight': 0.1, 'distance_weight': 6.033896859128443, 'zero_start_weight': 7.502814583542664}
+Best objective value: 328673.70115575136
+Improvement over starting weights: 1.71%

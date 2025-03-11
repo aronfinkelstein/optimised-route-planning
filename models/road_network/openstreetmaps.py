@@ -69,11 +69,11 @@ def save_node_geometries_to_csv():
     nodes[['osmid', 'latitude', 'longitude']].to_csv('../data/noe_data.csv', index=False)
     print("Nodes saved to 'nodes_geometries.csv'.")
 
-def save_edge_data_to_csv():
+def save_edge_data_to_csv(edge_data):
     '''
     saves the edge data
     '''
-    edges.to_csv('../data/edge_data.csv', index=True)
+    edge_data.to_csv('edge_data.csv', index=True)
     # print("saved edges to csv")
 
 def edge_climbs():
