@@ -167,9 +167,67 @@ def plot_graph_with_routes(G, route1=None, route2=None):
             route_colors.append('b')
         
         # Plot graph with routes
-        fig, ax = ox.plot_graph_routes(G, routes, route_colors=route_colors, 
+        fig, ax = ox.plot_graph_routes(G, routes, route_colors=route_colors, bgcolor='w', edge_color='#999999', node_color='#999999',
                                      node_size=10, edge_linewidth=1)
     
+    return fig, ax
+
+def plot_graph_with_colour_sroute(G, route, route_color='red', background='w'):
+    """
+    Plot a graph with a route in a single color
+    
+    Parameters:
+    -----------
+    G : networkx.MultiDiGraph
+        The graph to plot
+    route : list
+        Route as a list of nodes
+    route_color : str, optional
+        Color for the route (default 'red')
+    background : str, optional
+        Background color (default 'w' for white)
+    """
+    import matplotlib.pyplot as plt
+    import osmnx as ox
+    
+    # Create the figure and axis
+    fig, ax = ox.plot_graph(G, show=False, close=False, 
+                           bgcolor=background, edge_color='#CCCCCC', 
+                           node_color='#CCCCCC', node_size=5)
+    
+    # Create edge pairs from the route nodes
+    route_edges = list(zip(route[:-1], route[1:]))
+    
+    # Plot each edge with the same color
+    for u, v in route_edges:
+        # First try to find if this edge exists in the graph
+        if G.has_edge(u, v):
+            # For MultiDiGraph there might be multiple edges
+            edge_data = None
+            
+            # Try to find an edge with geometry
+            for key, data in G.get_edge_data(u, v).items():
+                if 'geometry' in data:
+                    edge_data = data
+                    break
+            
+            # If we found an edge with geometry
+            if edge_data and 'geometry' in edge_data:
+                xs, ys = edge_data['geometry'].xy
+                ax.plot(xs, ys, color=route_color, linewidth=4, alpha=0.8, zorder=3)
+                continue
+        
+        # If no geometry found, use straight line between nodes
+        x_u, y_u = G.nodes[u]['x'], G.nodes[u]['y']
+        x_v, y_v = G.nodes[v]['x'], G.nodes[v]['y']
+        ax.plot([x_u, x_v], [y_u, y_v], color=route_color, linewidth=4, alpha=0.8, zorder=3)
+    
+    # Plot nodes over the edges
+    node_Xs = [G.nodes[node]['x'] for node in route]
+    node_Ys = [G.nodes[node]['y'] for node in route]
+    ax.scatter(node_Xs, node_Ys, s=30, c='black', zorder=4)
+    
+    plt.tight_layout()
     return fig, ax
 
 def dijkstra(G, start_node:int, target_node:int) -> list:

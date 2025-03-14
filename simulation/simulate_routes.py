@@ -36,7 +36,6 @@ def find_route(map_data:dict, road_df:dict, graph, start_node: int, end_node: in
     G = wi.add_weights_to_graph(graph, map_data, weights_dict, weights_type)
     
     route = cg.dijkstra(G, start_node, end_node)
-    
     route_dict = {}
     missing_segments = []
     
@@ -222,4 +221,4 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
     detailed_results["summary"]["distance_list"] = distances
 
     # Return both the basic metrics, detailed results, and the new lists
-    return total_distance, total_consumption, total_climb, detailed_results, current_list, climbs, distances
+    return total_distance, total_consumption, total_climb, detailed_results, current_list, climbs, distances, consumptions
