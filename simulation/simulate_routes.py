@@ -70,6 +70,43 @@ def find_route(map_data:dict, road_df:dict, graph, start_node: int, end_node: in
     
     return route_dict
 
+
+def find_spec_route(route, map_data, graph, plot = False, debug = False ):
+    route_dict = {}
+    missing_segments = []
+    
+    for i in range(len(route)-1):
+        current_node = route[i]
+        next_node = route[i + 1]
+        
+        path = cg.find_path_with_nodes(map_data, current_node, next_node)
+        
+        if not path:  # If no path found between these nodes
+            missing_segments.append((current_node, next_node))
+            if debug:
+                print(f"❌ No path found between nodes {current_node} and {next_node}")
+        else:
+            # Optionally print the first few characters of each path key
+            if debug:
+                path_keys = list(path.keys())
+                # if path_keys:
+                #     print(f"  First few path keys: {path_keys[:3]}")
+            
+            route_dict.update(path)
+    
+    if debug:
+        if missing_segments:
+            print(f"Missing {len(missing_segments)} route segments out of {len(route)-1} total segments")
+            print(f"Missing segments: {missing_segments}")
+        else:
+            print(f"All {len(route)-1} route segments were found successfully")
+    
+    if plot:
+        fig, ax = cg.plot_graph_with_routes(graph, route)
+    
+    return route_dict
+
+
 def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data: dict, 
                              motor_eff: float, battery_data: dict) -> tuple:
     '''
@@ -84,8 +121,7 @@ def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data:
     battery_data (dict): Battery parameters including OCV, internal resistance, and capacity
     
     Returns:
-    tuple: (total_distance, total_consumption, total_climb, detailed_results, 
-           current_list, climb_list, distance_list)
+    tuple: (total_distance, total_consumption, total_climb, detailed_results, current_list, climbs, distances, consumptions)
     where detailed_results contains additional data about each segment, and
     current_list, climb_list, and distance_list are lists of all discharge currents,
     climbs, and distances respectively
