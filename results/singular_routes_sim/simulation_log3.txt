@@ -1,0 +1,15 @@
+==================================================
+SIMULATION STARTED: March 19, 2025 at 04:49:47 PM
+Output file: /Users/aronfinkelstein/Documents/GitHub/EAV-VRP/results/singular_routes_sim/simulation_test_set3.json
+Test set: test_set1
+Routes to process: 500
+==================================================
+
+
+==================================================
+SIMULATION COMPLETED: March 19, 2025 at 04:59:27 PM
+Total duration: 0:09:40.145124
+Routes processed: 500
+Results saved to: /Users/aronfinkelstein/Documents/GitHub/EAV-VRP/results/singular_routes_sim/simulation_test_set3.json
+==================================================
+
