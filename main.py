@@ -80,7 +80,7 @@ def create_new_test_set(road_df):
         test_set_dict[f'test_set{i}'] = test_set
     with open("test_data/test_route_set.json", "w") as file:
         json.dump(test_set_dict, file, indent=4)
- 
+
 road_network_file, road_df, static_data, vehicle_data, battery_data, map_data, weights = import_data()
 OCV = battery_data["OCV"]
 capacity = battery_data["Capacity"]
@@ -96,7 +96,7 @@ def simulate_and_analyse_route(test_routes_dict):
     random_route = test_set[random.randint(0, len(test_set))]
     route_output_optimised = sr.find_route(
                     map_data, road_df, graph, random_route[0], random_route[1], 
-                    weights, plot=False, weights_type='objective'
+                    weights, plot=True, weights_type='objective'
                 )            
     opt_results = sr.return_route_data_complex(
                     route_output_optimised, vehicle_data, static_data, 
