@@ -70,7 +70,6 @@ def find_route(map_data:dict, road_df:dict, graph, start_node: int, end_node: in
     
     return route_dict
 
-
 def find_spec_route(route, map_data, graph, plot = False, debug = False ):
     route_dict = {}
     missing_segments = []
@@ -105,7 +104,6 @@ def find_spec_route(route, map_data, graph, plot = False, debug = False ):
         fig, ax = cg.plot_graph_with_routes(graph, route)
     
     return route_dict
-
 
 def return_route_data_complex(route_dict: dict, vehicle_data: dict, static_data: dict, 
                              motor_eff: float, battery_data: dict) -> tuple:

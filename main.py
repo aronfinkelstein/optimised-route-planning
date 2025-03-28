@@ -1,145 +1,133 @@
 import json
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 import numpy as np
-import models.road_network.create_graph as cg
-import models.vehicle_models.energy_consumption as ec
-import simulation.simulate_routes as sr
-
 from pprint import pprint
-def load_json(file_path):
-    """Loads JSON data from a file."""
-    with open(file_path, "r") as file:
-        return json.load(file)
+import random 
+import models.road_network.create_graph as cg
+import simulation.simulate_routes as sr
+import models.vehicle_models.battery_deg as bd
 
-# Load battery, vehicle, and static data
-static_data = load_json("models/vehicle_models/static_data.json")
-vehicle_data = load_json("models/vehicle_models/vehicle_data.json")
-battery_data = load_json("models/vehicle_models/battery_data.json")
-map_data = load_json("./data_collection/data/large_net/fixed_large_dis_data.json")
+def import_data()->tuple:
+    '''
+    Import key files, returns:
+    road_network_file: path of edge data csv
+    road_df: edge data csv
+    static_data: dictionary of static parameters
+    vehicle_data: dictionary of vehicle parameters
+    battery_data: dictionary of battert parameters
+    map_data: dictionary of route data
+    weights: dictionary of optimal weight parameters
 
-# Load road network
-road_network_file = './data_collection/data/large_net/large_edge_data.csv' 
-road_df = pd.read_csv(road_network_file)
-
-# Battery Parameters
-BATTERY_CAPACITY = battery_data["Capacity"]  # Ah
-OCV = battery_data["OCV"]
-R_INT = battery_data["R_internal"]
-MOTOR_EFF = vehicle_data["motor_eff"]
-
-# ----------------------------------------
-# Create Road Network Graph
-# ----------------------------------------
-
-graph = cg.create_osmnx_compatible_graph(road_network_file, debug=False)
-
-route_test = (17585126, 2076171054)
-
-# Weights for route selection
-weights_dict = {
-    'incline_weight': 2.28,
-    'max_incline_weight': 0.88,
-    'distance_weight': 5.29,
-    'zero_start_weight': 15.0
-}
-
-
-
-def route_analysis(route, base_k = 0.200 ,c_rate_exp = 0.2286):
-
-    route_obj = sr.find_route(map_data, road_df, graph, route[0], route[1], weights_dict, plot=False, weights_type='obj')
-    route_dis = sr.find_route(map_data, road_df, graph, route[0], route[1], weights_dict, plot=False, weights_type='distance')
-
-
-    def extract_route_data(route_output):
-        """Extracts relevant energy and time data from a given route output."""
-        total_distance, total_consumption, total_climb, detailed_results, current_list, climbs, distances, consumption_list= sr.return_route_data_complex(
-            route_output, vehicle_data, static_data, MOTOR_EFF, battery_data
-        )
-        
-        # Extract time per segment
-        time_list = [
-            data["time"]
-            for key, value in detailed_results.items()
-            if 'path' in key
-            for _, data in value.items()
-        ]
-        
-        return total_distance, current_list, time_list, total_consumption, consumption_list
-
-    # Get route data
-    total_distance_obj, current_list_obj, time_list_obj, total_consumption_ob, consumptions_ob = extract_route_data(route_obj)
-    total_distance_dis, current_list_dis, time_list_dis, total_consumption,consumptions_dis = extract_route_data(route_dis)
-
-    def calc_capacity_reduction(consumption):
-        loss = consumption/OCV
-        return loss
-
-    def update_capacity_with_loss(current_list, consumptions, initial_capacity, OCV):
-        # Initialize the capacity list with the initial capacity
-        capacity_list = [initial_capacity]
-        c_rates_list = []
-        
-        # For each step, calculate the loss and update the capacity
-        for i in range(len(consumptions)):
-            # Calculate capacity loss from the consumption
-            loss = calc_capacity_reduction(consumptions[i])
-            
-            # Update the capacity by subtracting the loss
-            current_capacity = capacity_list[-1] - loss
-            capacity_list.append(current_capacity)
-            
-            # Calculate C-rate using the current capacity (not the initial one)
-            c_rate = current_list[i] / current_capacity if current_capacity > 0 else float('inf')
-            c_rates_list.append(c_rate)
-        
-        # Remove the initial capacity as it's not associated with any consumption
-        capacity_list.pop(0)
-        
-        return capacity_list, c_rates_list
-
-
-    cap_list_ob, c_rates_obj = update_capacity_with_loss(current_list_obj, consumptions_ob, BATTERY_CAPACITY, OCV)
-    cap_list_dis, c_rates_dis = update_capacity_with_loss(current_list_dis, consumptions_dis, BATTERY_CAPACITY, OCV)
-
-
-    # ----------------------------------------
-    # Capacity Loss Calculation
-    # ----------------------------------------
+    '''
+    with open("models/vehicle_models/static_data.json", "r") as file:
+        static_data = json.load(file)
+    with open("models/vehicle_models/vehicle_data.json", "r") as file:
+        vehicle_data = json.load(file)
+    with open("models/vehicle_models/battery_data.json", "r") as file:
+        battery_data = json.load(file)
+    with open("./data_collection/data/large_net/fixed_large_dis_data.json", "r") as file:
+        map_data = json.load(file)
     
+    with open("./data_collection/weights.json", "r") as file:
+        weights = json.load(file)
 
-    def compute_capacity_loss(c_rate_list, time_list, k=base_k, n=c_rate_exp):
-        """
-        Computes total capacity loss based on an empirical degradation model.
+    road_network_file = './data_collection/data/large_net/large_edge_data.csv' 
+    road_df = pd.read_csv(road_network_file)
+
+    print("data imported")
+    return road_network_file, road_df, static_data, vehicle_data, battery_data, map_data, weights
+
+def create_random_test_set(length:int, road_df):
+    import random
+    u_list = road_df['u'].to_list()
+    v_list = road_df['v'].to_list()
+    # Combine both lists to get all available nodes
+    all_nodes = u_list + v_list
+    
+    # Remove duplicates by converting to set and back to list
+    unique_nodes = list(set(all_nodes))
+    
+    # Make sure we have enough nodes for the requested pairs
+    if len(unique_nodes) < 2:
+        raise ValueError("Not enough unique nodes to create pairs")
+    
+    # Create test set of random pairs
+    test_set = []
+    while len(test_set) < length:
+        # Sample 2 nodes without replacement to ensure they're different
+        node_pair = random.sample(unique_nodes, 2)
         
-        cap_loss = k * (C-rate ^ n) * cycle_fraction
-        """
-        cap_losses = []
+        # Create the tuple and add to test set
+        pair = [node_pair[0], node_pair[1]]
         
-        for c_rate, time in zip(c_rate_list, time_list):
-            cycle_fraction = (time / 3600) * c_rate  # Convert time from seconds to cycles
-            cap_loss = k * (c_rate ** n) * cycle_fraction
-            cap_losses.append(cap_loss)
+        # Optionally, check if this exact pair already exists in the test set
+        # Uncomment if you want to ensure unique pairs
+        if pair not in test_set and [pair[1], pair[0]] not in test_set:
+            test_set.append(pair)
+        
+        # If you're close to exhausting all possible pairs, you might want to break
+        # This is just a precaution and likely won't be needed with large graphs
+        if len(test_set) == (len(unique_nodes) * (len(unique_nodes) - 1)) // 2:
+            break
 
-        return sum(cap_losses)
+    return test_set
 
-    # Calculate capacity loss
-    cap_loss_obj = compute_capacity_loss(c_rates_obj, time_list_obj)
-    cap_loss_dis = compute_capacity_loss(c_rates_dis, time_list_dis)
+def create_new_test_set(road_df):
+    test_set_dict = {}
+    for i in range(1,6):
+        test_set = create_random_test_set(500, road_df)
+        test_set_dict[f'test_set{i}'] = test_set
+    with open("test_data/test_route_set.json", "w") as file:
+        json.dump(test_set_dict, file, indent=4)
+ 
+road_network_file, road_df, static_data, vehicle_data, battery_data, map_data, weights = import_data()
+OCV = battery_data["OCV"]
+capacity = battery_data["Capacity"]
+R_int = battery_data["R_internal"]
+motor_eff = vehicle_data["motor_eff"]
+graph = cg.create_osmnx_compatible_graph(road_network_file, debug = False)
 
+with open("./data_collection/data/test_data/test_route_set.json", "r") as file:
+        test_routes_dict = json.load(file)
 
+def simulate_and_analyse_route(test_routes_dict):
+    test_set = test_routes_dict['test_set1']
+    random_route = test_set[random.randint(0, len(test_set))]
+    route_output_optimised = sr.find_route(
+                    map_data, road_df, graph, random_route[0], random_route[1], 
+                    weights, plot=False, weights_type='objective'
+                )            
+    opt_results = sr.return_route_data_complex(
+                    route_output_optimised, vehicle_data, static_data, 
+                    motor_eff, battery_data
+                )
+    
+    simulation_results = {
+                    'total_distance': opt_results[0],
+                    'total_consumption': opt_results[1],
+                    'total_climb': opt_results[2],
+                    'detailed_results': opt_results[3],
+                    'current_list': opt_results[4],
+                    'climbs': opt_results[5],
+                    'distances': opt_results[6],
+                    'consumptions': opt_results[7]
+                }
+    capacity_loss = bd.route_analysis(
+                        simulation_results['detailed_results'], 
+                        simulation_results['current_list'], 
+                        simulation_results['consumptions'],
+                        OCV, 
+                        capacity
+                    )       
 
-    def EOL(cap_loss, distance):
+    print("================Results================")
+    print(f'Total Distance: {round(simulation_results['total_distance'],2)}m')
+    print(f'Total Consumption: {round(simulation_results['total_consumption'],2)}Wh')
+    print(f'Total Climb: {round(simulation_results['total_climb'],2)}m')
+    print(f'Total Capacity Loss: {round(capacity_loss,5)}Ah')
 
-        cap_loss_per_m = cap_loss / distance
-
-        cap_loss_per_charge = cap_loss_per_m * 45000
-        # print(cap_loss_per_charge)
-
-        EOL_expected = (BATTERY_CAPACITY*0.6)/cap_loss_per_charge
-        return EOL_expected
-
-    return EOL(cap_loss_obj, total_distance_obj) , EOL(cap_loss_dis, total_distance_dis)
-
-
+if __name__ == '__main__':
+      with open("./data_collection/data/test_data/test_route_set.json", "r") as file:
+        test_routes_dict = json.load(file)
+      simulate_and_analyse_route(test_routes_dict)

@@ -1,6 +1,6 @@
 import math
 
-def discretize_all_sections(road_data, max_length=20.0):
+def discretise_all_sections(road_data, max_length=20.0):
     """
     Finds and replaces sections longer than max_length with multiple shorter sections.
     Works with data structure where sections are nested within paths.

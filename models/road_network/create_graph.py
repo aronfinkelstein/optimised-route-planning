@@ -1,9 +1,7 @@
 import networkx as nx
 import pandas as pd
-import matplotlib.pyplot as plt
 import osmnx as ox
 from shapely import wkt
-import geopandas as gpd
 
 def create_bidirectional_graph(csv_path):
     '''
